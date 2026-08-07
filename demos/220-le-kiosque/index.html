@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#22372B">
+<title>Le Kiosque — Fleuriste à Saint-Maur-des-Fossés</title>
+<meta name="description" content="Le Kiosque, artisan fleuriste à Saint-Maur-des-Fossés : bouquets sur mesure, mariage, deuil, plantes et livraison le jour même. Commandez au 01 42 83 60 79.">
+<style>
+:root{
+  --c-fond:#F1F4EC;
+  --c-surface:#FFFFFF;
+  --c-encre:#22372B;
+  --c-encre-2:#54685A;
+  --c-accent:#B23A57;
+  --c-accent-contraste:#FFFFFF;
+
+  --t-hero:clamp(2.25rem, 7vw, 4rem);
+  --t-sous-hero:clamp(1.05rem, 2.5vw, 1.375rem);
+  --t-h2:clamp(1.5rem, 4vw, 2.25rem);
+  --t-h3:1.1875rem;
+  --t-corps:1.0625rem;
+  --t-petit:0.875rem;
+  --t-etiquette:0.8125rem;
+
+  --e-1:0.25rem; --e-2:0.5rem; --e-3:0.75rem; --e-4:1rem; --e-5:1.5rem;
+  --e-6:2rem; --e-7:3rem; --e-8:4rem; --e-9:6rem;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{overflow-x:clip}
+body{
+  font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size:var(--t-corps);
+  line-height:1.6;
+  color:var(--c-encre);
+  background:var(--c-fond);
+  padding-bottom:calc(var(--e-9) + env(safe-area-inset-bottom));
+}
+img, svg { max-width: 100%; height: auto; }
+a{color:var(--c-accent)}
+a:focus-visible{outline:3px solid var(--c-accent);outline-offset:3px;border-radius:6px}
+.hero a:focus-visible, footer a:focus-visible, .sticky-appel:focus-visible{outline-color:var(--c-fond)}
+.conteneur{max-width:72rem;margin-inline:auto;padding-inline:var(--e-4)}
+main section{padding-block:var(--e-8)}
+h2{font-size:var(--t-h2);line-height:1.15;font-weight:800;letter-spacing:-0.01em}
+.ico{fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.ico-brin{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.etiquette{
+  font-size:var(--t-etiquette);text-transform:uppercase;letter-spacing:0.12em;
+  font-weight:600;color:var(--c-encre-2);
+  display:flex;align-items:center;gap:var(--e-2);
+}
+.entete-section{display:grid;gap:var(--e-2);margin-bottom:var(--e-6)}
+
+/* — Boutons d'appel — */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--e-2);
+  min-height:3.5rem;padding:var(--e-3) var(--e-6);
+  background:var(--c-accent);color:var(--c-accent-contraste);
+  font-weight:600;text-decoration:none;border-radius:999px;
+  box-shadow:0 6px 18px rgba(178,58,87,0.28);
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(178,58,87,0.34)}
+.btn-hero{flex-direction:column;gap:var(--e-1);padding:var(--e-4) var(--e-7)}
+.btn-numero{font-size:var(--t-petit);font-weight:400;opacity:0.92}
+
+/* — 1. Hero — */
+.hero{background:var(--c-encre);color:var(--c-fond);overflow:hidden}
+.hero-contenu{
+  padding-block:var(--e-8) var(--e-5);
+  display:flex;flex-direction:column;align-items:center;gap:var(--e-4);
+  text-align:center;
+}
+.hero .etiquette{color:#E9B9C6;justify-content:center}
+.hero h1{font-size:var(--t-hero);line-height:1.15;font-weight:800;letter-spacing:-0.02em;color:var(--c-surface)}
+.hero-sous{font-size:var(--t-sous-hero);max-width:34rem;color:var(--c-fond)}
+.hero-note{font-size:var(--t-petit);color:var(--c-fond);opacity:0.85}
+.hero-flore{display:block;width:100%;height:8.5rem;margin-top:var(--e-4)}
+.hero-flore *{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hero-flore .tiges{stroke:#7FA98C}
+.hero-flore .f-clair{stroke:#E9B9C6}
+.hero-flore .f-vif{stroke:#D96E8B}
+
+/* — 2. Bandeau confiance — */
+.confiance{background:var(--c-surface);border-block:1px solid #DFE6D8;padding-block:var(--e-5)}
+.confiance-liste{
+  list-style:none;display:flex;flex-wrap:wrap;justify-content:center;
+  gap:var(--e-3) var(--e-6);
+}
+.confiance-liste li{
+  display:flex;align-items:center;gap:var(--e-2);
+  font-size:var(--t-petit);font-weight:600;color:var(--c-encre-2);
+}
+
+/* — 3. Services — */
+.grille-services{display:grid;gap:var(--e-5)}
+.carte{
+  background:var(--c-surface);
+  border:1px solid #DFE6D8;
+  border:1px solid color-mix(in srgb, var(--c-encre) 10%, var(--c-fond));
+  border-radius:16px;padding:var(--e-5);
+  display:flex;flex-direction:column;gap:var(--e-3);
+}
+.carte-ico{
+  width:3rem;height:3rem;border-radius:12px;
+  background:#E7EDE1;
+  background:color-mix(in srgb, var(--c-encre) 8%, var(--c-surface));
+  display:grid;place-items:center;color:var(--c-encre);
+}
+.carte h3{font-size:var(--t-h3);font-weight:600}
+.carte p{color:var(--c-encre-2)}
+
+/* — 4. À-propos — */
+.apropos{background:var(--c-surface)}
+.apropos-texte{display:grid;gap:var(--e-4)}
+.apropos-texte p{max-width:65ch}
+.apropos-signature{font-weight:600;color:var(--c-encre-2)}
+
+/* — 5. Témoignages — */
+.temoignages{
+  background:#F8EDF0;
+  background:color-mix(in srgb, var(--c-accent) 7%, var(--c-surface));
+}
+.grille-temoignages{display:grid;gap:var(--e-5);align-items:start}
+.temoignage{
+  background:var(--c-surface);
+  border:1px solid #EBD9DE;
+  border:1px solid color-mix(in srgb, var(--c-accent) 14%, var(--c-surface));
+  border-radius:16px;padding:var(--e-5);
+  display:flex;flex-direction:column;gap:var(--e-4);
+}
+.temoignage blockquote p{color:var(--c-encre)}
+.temoignage figcaption{display:flex;flex-direction:column;gap:var(--e-1);font-size:var(--t-petit);color:var(--c-encre-2)}
+.temoignage cite{font-style:normal;font-weight:600;color:var(--c-encre)}
+
+/* — 6. Infos pratiques — */
+.grille-infos{display:grid;gap:var(--e-5);align-items:start}
+.liste-horaires{list-style:none;margin-top:var(--e-4)}
+.liste-horaires li{
+  display:flex;justify-content:space-between;gap:var(--e-4);
+  padding-block:var(--e-2);border-bottom:1px dashed #D8E0D2;
+}
+.liste-horaires li:last-child{border-bottom:none}
+.liste-horaires .jour{font-weight:500}
+.liste-horaires .ferme{color:var(--c-encre-2)}
+.carte-contact{gap:var(--e-4)}
+.adresse{display:flex;align-items:flex-start;gap:var(--e-2);font-weight:500}
+.adresse .ico{margin-top:var(--e-1)}
+.carte-contact .note{color:var(--c-encre-2);font-size:var(--t-petit)}
+.carte-contact .btn{align-self:flex-start}
+
+/* — 7. Footer — */
+footer{background:var(--c-encre);color:var(--c-fond);text-align:center;padding-block:var(--e-7)}
+.pied{display:flex;flex-direction:column;align-items:center;gap:var(--e-2)}
+.pied-nom{font-weight:700}
+.pied-ambiance{font-size:var(--t-petit);color:#E9B9C6}
+.pied-liens{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:var(--e-3);font-size:var(--t-petit)}
+footer a{color:var(--c-fond);display:inline-flex;align-items:center;min-height:3rem;padding-inline:var(--e-2)}
+
+/* — 8. Bouton d'appel sticky (mobile) — */
+.sticky-appel{
+  position:fixed;inset-inline:var(--e-4);bottom:var(--e-3);z-index:50;
+  display:flex;align-items:center;justify-content:center;gap:var(--e-2);
+  min-height:3.5rem;
+  background:var(--c-accent);color:var(--c-accent-contraste);
+  font-weight:600;text-decoration:none;border-radius:999px;
+  box-shadow:0 8px 24px rgba(34,55,43,0.35);
+  margin-bottom:env(safe-area-inset-bottom);
+}
+
+/* — Animations (rares, courtes) — */
+@media (prefers-reduced-motion: no-preference){
+  @keyframes lever{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .hero-contenu > *{animation:lever 0.35s ease-out both}
+  .hero-contenu > *:nth-child(2){animation-delay:0.05s}
+  .hero-contenu > *:nth-child(3){animation-delay:0.1s}
+  .hero-contenu > *:nth-child(4){animation-delay:0.15s}
+  .hero-contenu > *:nth-child(5){animation-delay:0.2s}
+  .hero-flore{animation:lever 0.38s ease-out 0.25s both}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important}
+}
+
+/* — ≥ 768 px — */
+@media (min-width: 768px){
+  body{padding-bottom:0}
+  .conteneur{padding-inline:var(--e-6)}
+  main section{padding-block:var(--e-9)}
+  .confiance{padding-block:var(--e-6)}
+  .hero-contenu{padding-block:var(--e-9) var(--e-6)}
+  .hero-flore{height:10rem}
+  .grille-services{grid-template-columns:repeat(2, 1fr)}
+  .grille-temoignages{grid-template-columns:repeat(3, 1fr)}
+  .grille-infos{grid-template-columns:1.1fr 1fr}
+  .carte{padding:var(--e-6)}
+  .sticky-appel{display:none}
+}
+
+/* — ≥ 1024 px — */
+@media (min-width: 1024px){
+  .grille-services{grid-template-columns:repeat(3, 1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- 1. Hero -->
+<header class="hero">
+  <div class="conteneur hero-contenu">
+    <p class="etiquette">Artisan fleuriste · Saint-Maur-des-Fossés</p>
+    <h1>Le Kiosque</h1>
+    <p class="hero-sous">Bouquets composés à la main, fleurs de saison et plantes d&rsquo;intérieur, au c&oelig;ur de Saint-Maur-des-Fossés. Passez à la boutique ou appelez : votre bouquet vous attendra.</p>
+    <a class="btn btn-hero" href="tel:+33142836079">
+      <span>Appeler maintenant</span>
+      <span class="btn-numero">01 42 83 60 79</span>
+    </a>
+    <p class="hero-note">Ouvert du mardi au dimanche matin — bouquet préparé pendant votre appel.</p>
+  </div>
+  <svg class="hero-flore" viewBox="0 0 1200 190" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <g id="fleur">
+        <circle r="2.6"/>
+        <circle cy="-8" r="4.1"/>
+        <circle cx="7.6" cy="-2.5" r="4.1"/>
+        <circle cx="4.7" cy="6.5" r="4.1"/>
+        <circle cx="-4.7" cy="6.5" r="4.1"/>
+        <circle cx="-7.6" cy="-2.5" r="4.1"/>
+      </g>
+      <g id="bouton">
+        <circle r="3.5"/>
+        <path d="M-3 3C-1 5.4 1 5.4 3 3"/>
+      </g>
+      <g id="brin">
+        <path d="M0 0C-3 -20 3 -34 0 -52"/>
+        <path d="M-1 -16C-9 -18 -14 -24 -15 -33 -7 -31 -2 -25 -1 -16Z"/>
+        <path d="M1 -28C9 -30 14 -36 15 -45 7 -43 2 -37 1 -28Z"/>
+        <path d="M-1 -38C-8 -40 -12 -45 -13 -52 -6 -50 -2 -45 -1 -38Z"/>
+      </g>
+    </defs>
+    <g class="tiges">
+      <path d="M62 190C57 158 70 140 64 120"/>
+      <path d="M140 190C144 168 132 158 138 146"/>
+      <path d="M217 190C212 150 228 130 220 102"/>
+      <use href="#brin" x="275" y="190"/>
+      <path d="M342 190C337 162 352 145 345 122"/>
+      <path d="M415 190C419 172 407 162 413 150"/>
+      <path d="M482 190C476 152 494 132 486 106"/>
+      <use href="#brin" transform="translate(545 190) scale(-1 1)"/>
+      <path d="M612 190C606 154 624 134 616 98"/>
+      <path d="M685 190C689 170 677 160 683 148"/>
+      <path d="M757 190C752 160 766 142 759 120"/>
+      <use href="#brin" x="822" y="190"/>
+      <path d="M892 190C886 152 902 132 895 104"/>
+      <path d="M965 190C969 172 957 162 963 150"/>
+      <path d="M1037 190C1032 158 1048 138 1040 114"/>
+      <use href="#brin" transform="translate(1102 190) scale(-1 1)"/>
+      <path d="M1162 190C1157 164 1170 148 1164 128"/>
+    </g>
+    <use href="#fleur" x="64" y="112" class="f-clair"/>
+    <use href="#bouton" x="138" y="141" class="f-clair"/>
+    <use href="#fleur" x="220" y="94" class="f-vif"/>
+    <use href="#fleur" x="345" y="114" class="f-clair"/>
+    <use href="#bouton" x="413" y="145" class="f-clair"/>
+    <use href="#fleur" x="486" y="98" class="f-clair"/>
+    <use href="#fleur" x="616" y="90" class="f-vif"/>
+    <use href="#bouton" x="683" y="143" class="f-clair"/>
+    <use href="#fleur" x="759" y="112" class="f-clair"/>
+    <use href="#fleur" x="895" y="96" class="f-clair"/>
+    <use href="#bouton" x="963" y="145" class="f-clair"/>
+    <use href="#fleur" x="1040" y="106" class="f-vif"/>
+    <use href="#fleur" x="1164" y="120" class="f-clair"/>
+  </svg>
+</header>
+
+<main>
+
+  <!-- 2. Bandeau confiance -->
+  <section class="confiance" aria-label="Pourquoi nous faire confiance">
+    <div class="conteneur">
+      <ul class="confiance-liste">
+        <li>
+          <svg class="ico-brin" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 14V3"/><path d="M8 9C5.8 9 4.2 7.6 3.8 5.4 6 5.4 7.6 6.8 8 9Z"/><path d="M8 6C8 3.8 9.6 2.2 11.8 1.8 11.4 4 10 5.6 8 6Z"/></svg>
+          Fleurs fraîches, deux arrivages par semaine
+        </li>
+        <li>
+          <svg class="ico-brin" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 14V3"/><path d="M8 9C5.8 9 4.2 7.6 3.8 5.4 6 5.4 7.6 6.8 8 9Z"/><path d="M8 6C8 3.8 9.6 2.2 11.8 1.8 11.4 4 10 5.6 8 6Z"/></svg>
+          Artisan fleuriste diplômé
+        </li>
+        <li>
+          <svg class="ico-brin" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 14V3"/><path d="M8 9C5.8 9 4.2 7.6 3.8 5.4 6 5.4 7.6 6.8 8 9Z"/><path d="M8 6C8 3.8 9.6 2.2 11.8 1.8 11.4 4 10 5.6 8 6Z"/></svg>
+          Bouquet préparé pendant votre appel
+        </li>
+        <li>
+          <svg class="ico-brin" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 14V3"/><path d="M8 9C5.8 9 4.2 7.6 3.8 5.4 6 5.4 7.6 6.8 8 9Z"/><path d="M8 6C8 3.8 9.6 2.2 11.8 1.8 11.4 4 10 5.6 8 6Z"/></svg>
+          Livraison le jour même à Saint-Maur-des-Fossés
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. Services -->
+  <section class="services">
+    <div class="conteneur">
+      <div class="entete-section">
+        <p class="etiquette">
+          <svg class="ico-brin" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 14V3"/><path d="M8 9C5.8 9 4.2 7.6 3.8 5.4 6 5.4 7.6 6.8 8 9Z"/><path d="M8 6C8 3.8 9.6 2.2 11.8 1.8 11.4 4 10 5.6 8 6Z"/></svg>
+          Nos services
+        </p>
+        <h2>Des fleurs pour chaque moment</h2>
+      </div>
+      <div class="grille-services">
+        <article class="carte">
+          <span class="carte-ico">
+            <svg class="ico" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 10.5 12 21l5-10.5"/><path d="M12 21V7M12 13 8.5 8M12 13l3.5-5"/><circle cx="7.5" cy="6.5" r="2.3"/><circle cx="12" cy="4.5" r="2.3"/><circle cx="16.5" cy="6.5" r="2.3"/></svg>
+          </span>
+          <h3>Bouquets sur mesure</h3>
+          <p>Dites-nous l&rsquo;occasion et le budget : nous composons au comptoir, devant vous, avec les fleurs du jour.</p>
+        </article>
+        <article class="carte">
+          <span class="carte-ico">
+            <svg class="ico" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="9" cy="14.5" r="5"/><circle cx="15" cy="14.5" r="5"/><path d="M12 2.8v2M8.6 4.2l1.4 1.4M15.4 4.2 14 5.6"/></svg>
+          </span>
+          <h3>Mariages &amp; événements</h3>
+          <p>Bouquet de mariée, boutonnières, centres de table et arche fleurie. Rendez-vous conseil à la boutique, sans engagement.</p>
+        </article>
+        <article class="carte">
+          <span class="carte-ico">
+            <svg class="ico" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 21v-8"/><path d="M12 13c-3.2 0-4.8-2.6-4.2-6.2C10.3 7.4 11.8 6 12 3.8 12.2 6 13.7 7.4 16.2 6.8 16.8 10.4 15.2 13 12 13Z"/><path d="M12 17.5c-1.8-.2-3-1.2-3.6-2.9"/></svg>
+          </span>
+          <h3>Deuil &amp; hommage</h3>
+          <p>Gerbes, coussins et raquettes, livrés directement à la cérémonie. Nous prenons le temps, avec discrétion.</p>
+        </article>
+        <article class="carte">
+          <span class="carte-ico">
+            <svg class="ico" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7.5 13.5h9l-1.1 7H8.6l-1.1-7Z"/><path d="M12 13.5V9.5"/><path d="M12 9.5C12 6.5 10 4.8 7.2 4.8 7.2 7.8 9.2 9.5 12 9.5Z"/><path d="M12 9.5c0-3 2-4.7 4.8-4.7 0 3-2 4.7-4.8 4.7Z"/></svg>
+          </span>
+          <h3>Plantes &amp; rempotage</h3>
+          <p>Plantes vertes et fleuries choisies pour votre lumière, conseils d&rsquo;entretien et rempotage de vos pots à l&rsquo;atelier.</p>
+        </article>
+        <article class="carte">
+          <span class="carte-ico">
+            <svg class="ico" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 10h16M8.5 3.5v3M15.5 3.5v3"/><circle cx="12" cy="14.8" r="1.2"/><path d="M12 12.2v.01M12 17.4v.01M9.4 14.8h.01M14.6 14.8h.01"/></svg>
+          </span>
+          <h3>Abonnement floral</h3>
+          <p>Un bouquet frais chaque semaine pour votre commerce, restaurant ou salle d&rsquo;attente. Vase fourni, fleurs selon la saison.</p>
+        </article>
+        <article class="carte">
+          <span class="carte-ico">
+            <svg class="ico" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M2.5 15.5V8h10v7.5"/><path d="M12.5 10h4.2l3 3.2v2.3h-1.9"/><circle cx="6.5" cy="16.5" r="1.8"/><circle cx="15.3" cy="16.5" r="1.8"/><path d="M8.3 16.5h5.2M2.5 15.5h2.2"/></svg>
+          </span>
+          <h3>Livraison locale</h3>
+          <p>À Saint-Maur-des-Fossés et dans les communes voisines. Commandé avant midi, livré le jour même.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. À-propos -->
+  <section class="apropos">
+    <div class="conteneur">
+      <div class="entete-section">
+        <p class="etiquette">
+          <svg class="ico-brin" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 14V3"/><path d="M8 9C5.8 9 4.2 7.6 3.8 5.4 6 5.4 7.6 6.8 8 9Z"/><path d="M8 6C8 3.8 9.6 2.2 11.8 1.8 11.4 4 10 5.6 8 6Z"/></svg>
+          La boutique
+        </p>
+        <h2>Une boutique de quartier, un métier d&rsquo;artisan</h2>
+      </div>
+      <div class="apropos-texte">
+        <p>La boutique a ouvert ses portes il y a quinze ans, à deux pas du marché de Saint-Maur-des-Fossés. Chaque mardi et chaque vendredi, nous choisissons nos fleurs à l&rsquo;aube chez les producteurs : renoncules et tulipes au printemps, pivoines en mai, dahlias et tournesols l&rsquo;été — et toujours quelques bottes d&rsquo;eucalyptus qui parfument l&rsquo;atelier.</p>
+        <p>Ici, pas de bouquets tout faits qui attendent sous cellophane. Vous nous dites l&rsquo;occasion, le budget, la personne — et nous composons devant vous. Pressé ? Appelez avant de passer : votre bouquet sera prêt, emballé dans notre kraft, à l&rsquo;heure dite.</p>
+        <p class="apropos-signature">L&rsquo;équipe de Le Kiosque</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Témoignages -->
+  <section class="temoignages">
+    <div class="conteneur">
+      <div class="entete-section">
+        <p class="etiquette">
+          <svg class="ico-brin" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 14V3"/><path d="M8 9C5.8 9 4.2 7.6 3.8 5.4 6 5.4 7.6 6.8 8 9Z"/><path d="M8 6C8 3.8 9.6 2.2 11.8 1.8 11.4 4 10 5.6 8 6Z"/></svg>
+          Témoignages
+        </p>
+        <h2>Ce que nos clients racontent</h2>
+      </div>
+      <div class="grille-temoignages">
+        <figure class="temoignage">
+          <blockquote>
+            <p>« Le bouquet de pivoines et d&rsquo;astilbes était exactement ce que j&rsquo;avais décrit, en plus beau. Les boutonnières ont tenu toute la soirée, et l&rsquo;arche a fait le fond de toutes nos photos. »</p>
+          </blockquote>
+          <figcaption>
+            <cite>Camille R.</cite>
+            <span>mariée en juin dernier</span>
+          </figcaption>
+        </figure>
+        <figure class="temoignage">
+          <blockquote>
+            <p>« Une gerbe sobre et digne pour les obsèques de ma mère, livrée à l&rsquo;église à l&rsquo;heure exacte. Merci pour votre tact. »</p>
+          </blockquote>
+          <figcaption>
+            <cite>Jean-Michel P.</cite>
+            <span>quartier de la cathédrale</span>
+          </figcaption>
+        </figure>
+        <figure class="temoignage">
+          <blockquote>
+            <p>« J&rsquo;y passe presque chaque samedi après le marché. On repart toujours avec un conseil en plus — couper les tiges en biseau, changer l&rsquo;eau tous les deux jours. Et mon monstera a doublé depuis son rempotage. »</p>
+          </blockquote>
+          <figcaption>
+            <cite>Sophie L.</cite>
+            <span>cliente du samedi matin</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Infos pratiques -->
+  <section class="infos">
+    <div class="conteneur">
+      <div class="entete-section">
+        <p class="etiquette">
+          <svg class="ico-brin" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 14V3"/><path d="M8 9C5.8 9 4.2 7.6 3.8 5.4 6 5.4 7.6 6.8 8 9Z"/><path d="M8 6C8 3.8 9.6 2.2 11.8 1.8 11.4 4 10 5.6 8 6Z"/></svg>
+          Infos pratiques
+        </p>
+        <h2>Venir à la boutique</h2>
+      </div>
+      <div class="grille-infos">
+        <div class="carte">
+          <h3>Horaires d&rsquo;ouverture</h3>
+          <ul class="liste-horaires">
+            <li><span class="jour">Lundi</span><span class="ferme">Fermé</span></li>
+            <li><span class="jour">Mardi</span><span>9h00 – 19h30</span></li>
+            <li><span class="jour">Mercredi</span><span>9h00 – 19h30</span></li>
+            <li><span class="jour">Jeudi</span><span>9h00 – 19h30</span></li>
+            <li><span class="jour">Vendredi</span><span>9h00 – 19h30</span></li>
+            <li><span class="jour">Samedi</span><span>8h30 – 20h00</span></li>
+            <li><span class="jour">Dimanche</span><span>9h00 – 13h00</span></li>
+          </ul>
+        </div>
+        <div class="carte carte-contact">
+          <h3>Nous trouver</h3>
+          <p class="adresse">
+            <svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 21s-6.5-5.7-6.5-10a6.5 6.5 0 0 1 13 0c0 4.3-6.5 10-6.5 10Z"/><circle cx="12" cy="10.8" r="2.3"/></svg>
+            <span>157 bis Boulevard de Créteil, 94100 Saint-Maur-des-Fossés</span>
+          </p>
+          <p>Cherchez la devanture verte et les seaux de fleurs sur le trottoir.</p>
+          <a class="btn" href="tel:+33142836079">
+            <svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            01 42 83 60 79
+          </a>
+          <p class="note">Commande par téléphone : votre bouquet est prêt à votre arrivée.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 7. Footer -->
+<footer>
+  <div class="conteneur pied">
+    <p class="pied-nom">Le Kiosque — Fleuriste à Saint-Maur-des-Fossés</p>
+    <p class="pied-ambiance">Des fleurs de saison, composées à la main.</p>
+    <p class="pied-liens">
+      <a href="tel:+33142836079">01 42 83 60 79</a>
+      <span aria-hidden="true">·</span>
+      <a href="#">Mentions légales</a>
+    </p>
+  </div>
+</footer>
+
+<!-- 8. Bouton d'appel sticky (mobile) -->
+<a class="sticky-appel" href="tel:+33142836079" aria-label="Appeler Le Kiosque">
+  <svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  Appeler · 01 42 83 60 79
+</a>
+
+</body>
+</html>

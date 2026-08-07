@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3S Energie — Artisan du bâtiment à Aubervilliers : plomberie, électricité, maçonnerie</title>
+<meta name="description" content="3S Energie, artisan du bâtiment à Aubervilliers : plomberie, électricité, maçonnerie, rénovation et dépannage. Devis gratuit après visite. Appelez le 06 51 27 80 80.">
+<style>
+:root {
+  /* Palette chantier : bleu de travail, plâtre, jaune sécurité */
+  --c-fond: #f4f5f2;
+  --c-surface: #ffffff;
+  --c-encre: #1c2733;
+  --c-encre-2: #55636f;
+  --c-accent: #f2b705;
+  --c-accent-contraste: #1c2733;
+
+  /* Échelle typographique */
+  --t-hero:      clamp(2.25rem, 7vw, 4rem);
+  --t-sous-hero: clamp(1.05rem, 2.5vw, 1.375rem);
+  --t-h2:        clamp(1.5rem, 4vw, 2.25rem);
+  --t-h3:        1.1875rem;
+  --t-corps:     1.0625rem;
+  --t-petit:     0.875rem;
+  --t-etiquette: 0.8125rem;
+
+  /* Échelle d'espacement (base 8) */
+  --e-1: 0.25rem;
+  --e-2: 0.5rem;
+  --e-3: 0.75rem;
+  --e-4: 1rem;
+  --e-5: 1.5rem;
+  --e-6: 2rem;
+  --e-7: 3rem;
+  --e-8: 4rem;
+  --e-9: 6rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--t-corps);
+  line-height: 1.6;
+  color: var(--c-encre);
+  background: var(--c-fond);
+  padding-bottom: 5rem; /* réserve pour le bouton d'appel sticky mobile */
+}
+
+img, svg { max-width: 100%; height: auto; }
+
+a { color: var(--c-encre); }
+
+:focus-visible {
+  outline: 3px solid var(--c-encre);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.hero :focus-visible,
+.sombre :focus-visible,
+.sticky-appel:focus-visible {
+  outline-color: var(--c-accent);
+}
+
+.conteneur {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: var(--e-4);
+}
+
+.section { padding-block: var(--e-8); }
+
+/* ---- Élément signature : le liseré de chantier ---- */
+.liseret {
+  height: 8px;
+  background: repeating-linear-gradient(-45deg,
+    var(--c-accent) 0 14px,
+    var(--c-encre) 14px 28px);
+}
+
+/* ---- Étiquettes & titres ---- */
+.etiquette {
+  display: block;
+  font-size: var(--t-etiquette);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-encre-2);
+  margin-bottom: var(--e-3);
+}
+.sombre .etiquette { color: var(--c-accent); }
+
+h2 {
+  font-size: var(--t-h2);
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: var(--e-5);
+}
+
+h3 { font-size: var(--t-h3); font-weight: 600; }
+
+p { max-width: 65ch; }
+
+/* ---- Hero ---- */
+.hero {
+  background-color: var(--c-encre);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: #ffffff;
+  padding-block: var(--e-8);
+}
+.hero .etiquette { color: var(--c-accent); }
+.hero h1 {
+  font-size: var(--t-hero);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin-bottom: var(--e-3);
+}
+.hero .sous-hero {
+  font-size: var(--t-sous-hero);
+  color: #c4cdd5;
+  max-width: 34ch;
+  margin-bottom: var(--e-6);
+}
+.hero .rassurance {
+  margin-top: var(--e-4);
+  font-size: var(--t-petit);
+  color: #c4cdd5;
+  max-width: none;
+}
+
+/* ---- Bouton d'appel ---- */
+.btn-appel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-3);
+  width: 100%;
+  min-height: 3.5rem; /* 56 px */
+  padding: var(--e-3) var(--e-5);
+  background: var(--c-accent);
+  color: var(--c-accent-contraste);
+  font-size: var(--t-corps);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-appel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(0,0,0,0.32);
+}
+.btn-appel svg { flex: none; }
+
+/* ---- Bandeau confiance ---- */
+.confiance {
+  background: var(--c-surface);
+  border-bottom: 1px solid rgba(28,39,51,0.1);
+  padding-block: var(--e-5);
+}
+.confiance ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--e-5);
+}
+.confiance li {
+  display: flex;
+  align-items: center;
+  gap: var(--e-3);
+  font-size: var(--t-petit);
+  font-weight: 600;
+}
+.confiance svg { flex: none; color: var(--c-encre-2); }
+
+/* ---- Services ---- */
+.grille-services {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-5);
+}
+.carte {
+  background: var(--c-surface);
+  border: 1px solid rgba(28,39,51,0.1);
+  border-radius: 14px;
+  padding: var(--e-5);
+}
+.carte .pictos {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10px;
+  background: rgba(242,183,5,0.18);
+  color: var(--c-encre);
+  margin-bottom: var(--e-4);
+}
+.carte h3 { margin-bottom: var(--e-2); }
+.carte p { color: var(--c-encre-2); font-size: 1rem; }
+
+/* ---- À-propos ---- */
+.apropos { background: var(--c-surface); }
+.apropos p + p { margin-top: var(--e-4); }
+
+/* ---- Témoignages ---- */
+.grille-temoins {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-5);
+}
+.temoin {
+  background: var(--c-surface);
+  border: 1px solid rgba(28,39,51,0.1);
+  border-left: 4px solid var(--c-accent);
+  border-radius: 14px;
+  padding: var(--e-5);
+}
+.temoin blockquote p { font-size: 1rem; }
+.temoin cite {
+  display: block;
+  margin-top: var(--e-4);
+  font-style: normal;
+  font-size: var(--t-petit);
+  font-weight: 600;
+  color: var(--c-encre-2);
+}
+
+/* ---- Infos pratiques ---- */
+.sombre {
+  background: var(--c-encre);
+  color: #ffffff;
+}
+.sombre h2 { color: #ffffff; }
+.infos-grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-6);
+}
+.infos-grille h3 { margin-bottom: var(--e-4); }
+.horaires { list-style: none; max-width: 26rem; }
+.horaires li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--e-4);
+  padding-block: var(--e-2);
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+  font-size: 1rem;
+}
+.horaires .jour { font-weight: 600; }
+.horaires .creneau { color: #c4cdd5; text-align: right; }
+.note-urgence {
+  margin-top: var(--e-4);
+  font-size: var(--t-petit);
+  color: #c4cdd5;
+}
+.coordonnees p {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-3);
+  margin-bottom: var(--e-4);
+  color: #c4cdd5;
+}
+.coordonnees svg { flex: none; margin-top: 0.2rem; color: var(--c-accent); }
+.coordonnees .btn-appel { margin-top: var(--e-5); }
+
+/* ---- Footer ---- */
+.pied {
+  padding-block: var(--e-6);
+  font-size: var(--t-petit);
+  color: var(--c-encre-2);
+}
+.pied p { max-width: none; }
+.pied .ambiance { margin-bottom: var(--e-3); font-style: italic; }
+.pied a { color: var(--c-encre); }
+
+/* ---- Bouton d'appel sticky (mobile) ---- */
+.sticky-appel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-3);
+  min-height: 3.5rem; /* 56 px */
+  padding: var(--e-3) var(--e-4);
+  padding-bottom: calc(var(--e-3) + env(safe-area-inset-bottom));
+  background: var(--c-accent);
+  color: var(--c-accent-contraste);
+  font-weight: 600;
+  text-decoration: none;
+}
+.sticky-appel::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(-45deg,
+    var(--c-accent) 0 14px,
+    var(--c-encre) 14px 28px);
+}
+.sticky-appel svg { flex: none; }
+
+/* ---- ≥ 768 px ---- */
+@media (min-width: 768px) {
+  body { padding-bottom: 0; }
+  .sticky-appel { display: none; }
+  .conteneur { padding-inline: var(--e-6); }
+  .section { padding-block: var(--e-9); }
+  .hero { padding-block: var(--e-9); }
+  .btn-appel { display: inline-flex; width: auto; }
+  .confiance ul { grid-template-columns: repeat(4, 1fr); }
+  .grille-services { grid-template-columns: 1fr 1fr; }
+  .grille-temoins { grid-template-columns: repeat(3, 1fr); }
+  .infos-grille { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---- ≥ 1024 px ---- */
+@media (min-width: 1024px) {
+  .grille-services { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .btn-appel:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="liseret" aria-hidden="true"></div>
+
+<!-- 1. Hero -->
+<header class="hero">
+  <div class="conteneur">
+    <span class="etiquette">Artisan du bâtiment — Aubervilliers</span>
+    <h1>3S Energie</h1>
+    <p class="sous-hero">Plomberie, électricité, maçonnerie : rénovation et dépannage à Aubervilliers et alentours.</p>
+    <a class="btn-appel" href="tel:+33651278080">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Appeler maintenant · <strong>06 51 27 80 80</strong></span>
+    </a>
+    <p class="rassurance">Devis gratuit après visite · Réponse dans la journée</p>
+  </div>
+</header>
+
+<div class="liseret" aria-hidden="true"></div>
+
+<main>
+
+  <!-- 2. Bandeau confiance -->
+  <section class="confiance" aria-label="Nos garanties">
+    <div class="conteneur">
+      <ul>
+        <li>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.3-6.5-10a6.5 6.5 0 0 1 13 0C18.5 15.7 12 21 12 21Z"/><circle cx="12" cy="10.7" r="2.3"/></svg>
+          Artisan local à Aubervilliers
+        </li>
+        <li>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="1.5"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg>
+          Devis gratuit sous 48 h
+        </li>
+        <li>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 2.8v5.4c0 4.6-4.4 7.6-7 8.8-2.6-1.2-7-4.2-7-8.8V5.8Z"/><path d="m9.3 11.6 2 2 3.4-3.8"/></svg>
+          Assurance décennale
+        </li>
+        <li>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+          Urgences 7 j/7
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. Services -->
+  <section class="section" aria-labelledby="titre-services">
+    <div class="conteneur">
+      <span class="etiquette">Nos savoir-faire</span>
+      <h2 id="titre-services">Un seul artisan, tous les corps d'état</h2>
+      <div class="grille-services">
+        <article class="carte">
+          <span class="pictos">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5C12 3.5 6.5 9.8 6.5 14a5.5 5.5 0 0 0 11 0C17.5 9.8 12 3.5 12 3.5Z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2 2.4"/></svg>
+          </span>
+          <h3>Plomberie &amp; sanitaire</h3>
+          <p>Recherche de fuite, chauffe-eau, remplacement de robinetterie, création de salle de bains. Chantier protégé, coupure d'eau réduite au minimum.</p>
+        </article>
+        <article class="carte">
+          <span class="pictos">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 2.5-8.2 11h6.2l-1.4 8 9.6-11.3h-6.2z"/></svg>
+          </span>
+          <h3>Électricité générale</h3>
+          <p>Mise aux normes du tableau, prises, éclairages et dépannage de pannes. Installations conformes à la norme NF C 15-100.</p>
+        </article>
+        <article class="carte">
+          <span class="pictos">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="1"/><path d="M3.5 10h17M3.5 14h17M9 6v4M15 6v4M6 10v4M12 10v4M18 10v4M9 14v4M15 14v4"/></svg>
+          </span>
+          <h3>Maçonnerie &amp; gros œuvre</h3>
+          <p>Ouverture de murs porteurs, terrasses, seuils, reprise de fissures. Du parpaing brut à l'enduit de finition.</p>
+        </article>
+        <article class="carte">
+          <span class="pictos">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>
+          </span>
+          <h3>Carrelage &amp; sols</h3>
+          <p>Pose de carrelage, faïence murale, parquet flottant. Coupes nettes, joints réguliers, alignements tirés au cordeau.</p>
+        </article>
+        <article class="carte">
+          <span class="pictos">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="13" height="5" rx="1.5"/><path d="M17 6.5h3v4h-8v3"/><rect x="11" y="13.5" width="2" height="6" rx="0.5"/></svg>
+          </span>
+          <h3>Plâtrerie &amp; peinture</h3>
+          <p>Cloisons en plaques de plâtre, enduits, bandes et peinture de finition. Des murs droits et des angles francs.</p>
+        </article>
+        <article class="carte">
+          <span class="pictos">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </span>
+          <h3>Dépannage d'urgence</h3>
+          <p>Fuite d'eau, panne de courant, dégât des eaux : nous décrochons 7 j/7 et intervenons dans la journée autour de Aubervilliers.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. À-propos -->
+  <section class="section apropos" aria-labelledby="titre-apropos">
+    <div class="conteneur">
+      <span class="etiquette">L'entreprise</span>
+      <h2 id="titre-apropos">Le même artisan du devis à la réception</h2>
+      <p>Artisans de père en fils, nous travaillons sur les chantiers de Aubervilliers et de ses environs depuis plus de quinze ans. Chez 3S Energie, vous avez un seul interlocuteur : celui qui vous répond au téléphone est celui qui tient la truelle.</p>
+      <p>Nous chiffrons chaque chantier après une visite sur place, jamais au téléphone. Le devis est détaillé poste par poste, le chantier est bâché et balayé chaque soir, et le travail n'est terminé que lorsque vous l'avez validé avec nous, réserve par réserve.</p>
+    </div>
+  </section>
+
+  <!-- 5. Témoignages -->
+  <section class="section" aria-labelledby="titre-temoins">
+    <div class="conteneur">
+      <span class="etiquette">Ils nous ont confié leurs travaux</span>
+      <h2 id="titre-temoins">Paroles de voisins</h2>
+      <div class="grille-temoins">
+        <article class="temoin">
+          <blockquote>
+            <p>Fuite sous l'évier un dimanche soir : rappelée en dix minutes, dépannée dans l'heure. Le remplacement du siphon a été fait le mardi, facture conforme au devis.</p>
+          </blockquote>
+          <cite>Martine D. — centre-ville de Aubervilliers</cite>
+        </article>
+        <article class="temoin">
+          <blockquote>
+            <p>Nous leur avons confié la rénovation complète de notre salle de bains : dépose de l'ancienne baignoire, douche à l'italienne, faïence et électricité. Trois semaines annoncées, trois semaines tenues, et un carrelage posé au cordeau. On sent l'artisan qui aime son métier.</p>
+          </blockquote>
+          <cite>Élodie R. — maison de ville, quartier de la gare</cite>
+        </article>
+        <article class="temoin">
+          <blockquote>
+            <p>Tableau électrique remis aux normes en une journée. Ponctuel, chantier propre, explications claires. Je recommande.</p>
+          </blockquote>
+          <cite>Karim B. — pavillon en périphérie de Aubervilliers</cite>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Infos pratiques -->
+  <section class="section sombre" aria-labelledby="titre-infos">
+    <div class="conteneur">
+      <span class="etiquette">Infos pratiques</span>
+      <h2 id="titre-infos">Nous trouver, nous joindre</h2>
+      <div class="infos-grille">
+        <div>
+          <h3>Horaires d'intervention</h3>
+          <ul class="horaires">
+            <li><span class="jour">Lundi</span> <span class="creneau">8h00 – 18h30</span></li>
+            <li><span class="jour">Mardi</span> <span class="creneau">8h00 – 18h30</span></li>
+            <li><span class="jour">Mercredi</span> <span class="creneau">8h00 – 18h30</span></li>
+            <li><span class="jour">Jeudi</span> <span class="creneau">8h00 – 18h30</span></li>
+            <li><span class="jour">Vendredi</span> <span class="creneau">8h00 – 17h30</span></li>
+            <li><span class="jour">Samedi</span> <span class="creneau">9h00 – 12h00, sur rendez-vous</span></li>
+            <li><span class="jour">Dimanche</span> <span class="creneau">Fermé — urgences uniquement</span></li>
+          </ul>
+          <p class="note-urgence">En dehors de ces horaires, le dépannage d'urgence reste joignable 7 j/7.</p>
+        </div>
+        <div class="coordonnees">
+          <h3>Coordonnées</h3>
+          <p>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.3-6.5-10a6.5 6.5 0 0 1 13 0C18.5 15.7 12 21 12 21Z"/><circle cx="12" cy="10.7" r="2.3"/></svg>
+            <span>68 rue André Karman, 93300 Aubervilliers</span>
+          </p>
+          <p>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Déplacements à Aubervilliers et dans un rayon de 30 km</span>
+          </p>
+          <a class="btn-appel" href="tel:+33651278080">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Appeler · <strong>06 51 27 80 80</strong></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 7. Footer -->
+<footer class="pied">
+  <div class="conteneur">
+    <p class="ambiance">Le travail bien fait, du premier coup de fil au dernier coup de balai.</p>
+    <p>3S Energie — Artisan du bâtiment à Aubervilliers · <a href="tel:+33651278080">06 51 27 80 80</a> · <a href="#">Mentions légales</a></p>
+  </div>
+</footer>
+
+<!-- 8. Bouton d'appel sticky (mobile) -->
+<a class="sticky-appel" href="tel:+33651278080" aria-label="Appeler 3S Energie">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  <span>Appeler · <strong>06 51 27 80 80</strong></span>
+</a>
+
+</body>
+</html>

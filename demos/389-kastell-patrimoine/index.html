@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kastell Patrimoine — Conciergerie Airbnb à Maisse</title>
+<meta name="description" content="Kastell Patrimoine, conciergerie Airbnb et location courte durée à Maisse : annonce, accueil des voyageurs, ménage hôtelier, revenus reversés chaque mois. Estimation gratuite au 06 32 11 36 44.">
+<style>
+/* ==========================================================
+   Kastell Patrimoine — template « conciergerie » (kit sites-prospects)
+   Palette : bleu nuit d'hôtel et laiton de clé sur fond blanc linge.
+   Signature : la carte d'estimation en forme d'étiquette de clé,
+   suspendue dans le hero.
+   ========================================================== */
+
+:root {
+  /* Palette métier */
+  --c-fond: #FBFAF7;             /* blanc linge, drap repassé */
+  --c-surface: #FFFFFF;          /* cartes */
+  --c-encre: #172033;            /* bleu nuit d'encre (aussi fond du hero) */
+  --c-encre-2: #55617A;          /* gris ardoise, texte secondaire */
+  --c-accent: #8A6A16;           /* laiton de clé (actions) */
+  --c-accent-contraste: #FFFFFF; /* texte posé sur l'accent */
+
+  /* Échelle typographique fluide */
+  --t-hero:      clamp(2.25rem, 7vw, 4rem);
+  --t-sous-hero: clamp(1.05rem, 2.5vw, 1.375rem);
+  --t-h2:        clamp(1.5rem, 4vw, 2.25rem);
+  --t-h3:        1.1875rem;
+  --t-corps:     1.0625rem;
+  --t-petit:     0.875rem;
+  --t-etiquette: 0.8125rem;
+
+  /* Échelle d'espacement (base 8 px) */
+  --e-1: 0.25rem;
+  --e-2: 0.5rem;
+  --e-3: 0.75rem;
+  --e-4: 1rem;
+  --e-5: 1.5rem;
+  --e-6: 2rem;
+  --e-7: 3rem;
+  --e-8: 4rem;
+  --e-9: 6rem;
+}
+
+/* ---------- Socle ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--t-corps);
+  line-height: 1.6;
+  color: var(--c-encre);
+  background: var(--c-fond);
+  /* Réserve pour le bouton d'appel sticky mobile */
+  padding-bottom: 5.5rem;
+}
+
+img, svg { max-width: 100%; height: auto; }
+
+a { color: var(--c-accent); }
+
+:focus-visible {
+  outline: 3px solid var(--c-encre);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.hero :focus-visible { outline-color: #FFFFFF; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.conteneur {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: var(--e-4);
+}
+
+section { padding-block: var(--e-8); }
+
+.etiquette {
+  display: block;
+  font-size: var(--t-etiquette);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-accent);
+  margin-bottom: var(--e-3);
+}
+
+h2 {
+  font-size: var(--t-h2);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: var(--e-5);
+}
+
+h3 {
+  font-size: var(--t-h3);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+p { max-width: 65ch; }
+
+/* ---------- Boutons d'appel ---------- */
+.btn-appel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-3);
+  min-height: 3.5rem; /* 56 px */
+  padding: var(--e-3) var(--e-6);
+  background: var(--c-accent);
+  color: var(--c-accent-contraste);
+  font-size: var(--t-corps);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+}
+.btn-appel:hover { background: #6F5512; }
+.btn-appel svg { flex: none; }
+
+/* ---------- 1. Hero ---------- */
+.hero {
+  background: var(--c-encre);
+  color: #FFFFFF;
+  padding-block: var(--e-8) var(--e-8);
+}
+.hero-grille {
+  display: grid;
+  gap: var(--e-6);
+  align-items: center;
+}
+.hero .etiquette { color: #D8BC6A; }
+.hero h1 {
+  font-size: var(--t-hero);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: var(--e-3);
+  overflow-wrap: break-word; /* noms d'entreprise très longs sur petit écran */
+}
+.hero .sous-hero {
+  font-size: var(--t-sous-hero);
+  color: #C3CBDD;
+  margin-bottom: var(--e-5);
+  max-width: 34ch;
+}
+.hero .btn-appel { margin-bottom: var(--e-2); }
+.hero .rassurance {
+  font-size: var(--t-petit);
+  color: #9AA6BF;
+}
+
+/* Élément signature : l'étiquette de clé (carte d'estimation) */
+.tag-cle {
+  position: relative;
+  background: var(--c-surface);
+  color: var(--c-encre);
+  border-radius: 14px 14px 18px 18px;
+  padding: var(--e-7) var(--e-5) var(--e-5);
+  max-width: 26rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+.tag-cle::before { /* le trou percé de l'étiquette */
+  content: "";
+  position: absolute;
+  top: 14px; left: 50%;
+  width: 18px; height: 18px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--c-encre);
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5);
+}
+.tag-cle h2 {
+  font-size: var(--t-h3);
+  font-weight: 700;
+  margin-bottom: var(--e-4);
+  text-align: center;
+}
+.tag-cle .champ { margin-bottom: var(--e-4); }
+.tag-cle label {
+  display: block;
+  font-size: var(--t-petit);
+  font-weight: 600;
+  color: var(--c-encre-2);
+  margin-bottom: var(--e-1);
+}
+.tag-cle select {
+  width: 100%;
+  min-height: 3rem;
+  font: inherit;
+  padding: var(--e-2) var(--e-3);
+  border: 1px solid #CBD2E0;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: var(--c-encre);
+}
+.tag-cle .resultat {
+  background: #F4EFDF;
+  border-radius: 10px;
+  padding: var(--e-4);
+  text-align: center;
+  margin-bottom: var(--e-4);
+}
+.tag-cle .resultat .fourchette {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--c-encre);
+}
+.tag-cle .resultat .precision {
+  font-size: var(--t-petit);
+  color: var(--c-encre-2);
+}
+.tag-cle .btn-appel { width: 100%; }
+
+/* ---------- 2. Bandeau confiance ---------- */
+.confiance {
+  background: var(--c-surface);
+  border-block: 1px solid #E8E4D8;
+  padding-block: var(--e-5);
+}
+.confiance ul {
+  list-style: none;
+  display: grid;
+  gap: var(--e-4);
+}
+.confiance li {
+  display: flex;
+  align-items: center;
+  gap: var(--e-3);
+  font-weight: 600;
+  font-size: var(--t-petit);
+}
+.confiance svg { flex: none; color: var(--c-accent); }
+
+/* ---------- 3. Services ---------- */
+.services .grille {
+  display: grid;
+  gap: var(--e-5);
+}
+.carte {
+  background: var(--c-surface);
+  border: 1px solid #ECE8DC;
+  border-radius: 12px;
+  padding: var(--e-5);
+}
+.carte svg { color: var(--c-accent); margin-bottom: var(--e-3); }
+.carte h3 { margin-bottom: var(--e-2); }
+.carte p { font-size: var(--t-petit); color: var(--c-encre-2); }
+
+/* ---------- 4. À-propos ---------- */
+.apropos p + p { margin-top: var(--e-4); }
+.apropos .vignettes {
+  display: grid;
+  gap: var(--e-4);
+  margin-top: var(--e-6);
+}
+.apropos .vignette {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ECE8DC;
+  background: var(--c-surface);
+}
+.apropos .vignette svg { display: block; width: 100%; height: auto; }
+.apropos .legende-vignettes {
+  font-size: var(--t-petit);
+  color: var(--c-encre-2);
+  margin-top: var(--e-3);
+}
+
+/* ---------- 5. Témoignages ---------- */
+.temoignages { background: var(--c-encre); color: #FFFFFF; }
+.temoignages h2 { color: #FFFFFF; }
+.temoignages .etiquette { color: #D8BC6A; }
+.temoignages .grille { display: grid; gap: var(--e-5); }
+.temoignages blockquote {
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 3px solid var(--c-accent);
+  border-radius: 0 12px 12px 0;
+  padding: var(--e-5);
+}
+.temoignages blockquote p {
+  font-size: var(--t-corps);
+  color: #E4E8F1;
+  margin-bottom: var(--e-3);
+}
+.temoignages cite {
+  font-style: normal;
+  font-size: var(--t-petit);
+  color: #9AA6BF;
+}
+
+/* ---------- 6. Infos pratiques ---------- */
+.infos .grille {
+  display: grid;
+  gap: var(--e-6);
+}
+.infos h3 { margin-bottom: var(--e-3); }
+.infos .bloc {
+  background: var(--c-surface);
+  border: 1px solid #ECE8DC;
+  border-radius: 12px;
+  padding: var(--e-5);
+}
+.infos dl.horaires div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--e-4);
+  padding-block: var(--e-2);
+  border-bottom: 1px solid #F0EDE3;
+  font-size: var(--t-petit);
+}
+.infos dl.horaires div:last-child { border-bottom: none; }
+.infos dl.horaires dt { color: var(--c-encre-2); }
+.infos dl.horaires dd { font-weight: 600; text-align: right; }
+.infos address { font-style: normal; }
+.infos .tel-bloc {
+  display: block;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--c-accent);
+  text-decoration: none;
+  margin-top: var(--e-2);
+}
+.infos ul.zone { list-style: none; }
+.infos ul.zone li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--e-3);
+  padding-block: var(--e-2);
+  font-size: var(--t-petit);
+}
+.infos ul.zone li::before {
+  content: "";
+  flex: none;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  transform: translateY(-1px);
+}
+
+/* ---------- 7. Footer ---------- */
+footer {
+  background: var(--c-encre);
+  color: #9AA6BF;
+  padding-block: var(--e-6);
+  font-size: var(--t-petit);
+}
+footer .conteneur {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-4);
+  justify-content: space-between;
+  align-items: center;
+}
+footer a { color: #C3CBDD; }
+footer strong { color: #FFFFFF; }
+
+/* ---------- 8. Sticky d'appel mobile ---------- */
+.sticky-appel {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-3);
+  min-height: 3.5rem;
+  margin: var(--e-3);
+  border-radius: 999px;
+  background: var(--c-accent);
+  color: var(--c-accent-contraste);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(23, 32, 51, 0.35);
+}
+
+/* ---------- ≥ 768 px ---------- */
+@media (min-width: 768px) {
+  body { padding-bottom: 0; }
+  .conteneur { padding-inline: var(--e-6); }
+  section { padding-block: var(--e-9); }
+  .sticky-appel { display: none; }
+  .hero-grille { grid-template-columns: 1.15fr 0.85fr; gap: var(--e-8); }
+  .tag-cle { justify-self: end; }
+  .confiance ul { grid-template-columns: repeat(4, auto); justify-content: space-between; }
+  .services .grille { grid-template-columns: repeat(2, 1fr); }
+  .apropos .vignettes { grid-template-columns: repeat(3, 1fr); }
+  .temoignages .grille { grid-template-columns: repeat(3, 1fr); }
+  .infos .grille { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .services .grille { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 1. HERO ============ -->
+<header class="hero">
+  <div class="conteneur hero-grille">
+    <div>
+      <span class="etiquette">Conciergerie Airbnb &amp; location courte durée</span>
+      <h1>Kastell Patrimoine</h1>
+      <p class="sous-hero">Votre logement à Maisse loué, accueilli et entretenu comme une chambre d'hôtel — sans que vous ayez à y penser.</p>
+      <a class="btn-appel" href="tel:+33632113644">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Appeler le 06 32 11 36 44
+      </a>
+      <p class="rassurance">Estimation gratuite et sans engagement, réponse le jour même.</p>
+    </div>
+
+    <!-- Élément signature : l'étiquette de clé -->
+    <div class="tag-cle" id="estimation">
+      <h2>Combien peut rapporter votre bien&nbsp;?</h2>
+      <div class="champ">
+        <label for="type-bien">Votre logement</label>
+        <select id="type-bien">
+          <option value="studio">Studio</option>
+          <option value="t2" selected>T2</option>
+          <option value="t3">T3 / T4</option>
+          <option value="maison">Maison</option>
+        </select>
+      </div>
+      <div class="champ">
+        <label for="mode-location">Vous le louez…</label>
+        <select id="mode-location">
+          <option value="annee" selected>À l'année (résidence secondaire)</option>
+          <option value="principale">Quand vous partez (résidence principale, 90 j/an max)</option>
+        </select>
+      </div>
+      <div class="resultat">
+        <span class="fourchette" id="fourchette">1 300 – 1 900 € / mois</span>
+        <span class="precision" id="precision">Revenus bruts indicatifs pour un T2 à Maisse, selon quartier et saison.</span>
+      </div>
+      <a class="btn-appel" href="tel:+33632113644">Affiner au téléphone</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 2. BANDEAU CONFIANCE ============ -->
+<section class="confiance" aria-label="Nos garanties">
+  <div class="conteneur">
+    <ul>
+      <li>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        Conforme loi Le&nbsp;Meur 2026
+      </li>
+      <li>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Voyageurs répondus 7&nbsp;j/7
+      </li>
+      <li>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        Revenus reversés chaque mois
+      </li>
+      <li>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        Ménage contrôlé après chaque séjour
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 3. SERVICES ============ -->
+<section class="services" aria-labelledby="titre-services">
+  <div class="conteneur">
+    <span class="etiquette">Ce qu'on prend en charge</span>
+    <h2 id="titre-services">Vous confiez les clés, on s'occupe du reste</h2>
+    <div class="grille">
+      <article class="carte">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <h3>Annonce &amp; photos</h3>
+        <p>Reportage photo du logement, annonce rédigée et publiée sur Airbnb et Booking. Une annonce soignée se réserve plus vite, plus cher.</p>
+      </article>
+      <article class="carte">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <h3>Tarifs ajustés</h3>
+        <p>Prix revus selon la saison, les événements et le calendrier local. Le logement ne dort jamais à un tarif d'hiver un week-end de salon.</p>
+      </article>
+      <article class="carte">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+        <h3>Arrivées &amp; clés</h3>
+        <p>Accueil des voyageurs, remise des clés, consignes du logement. Messages et imprévus gérés à toute heure, week-ends compris.</p>
+      </article>
+      <article class="carte">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h12"/></svg>
+        <h3>Ménage &amp; linge</h3>
+        <p>Ménage complet entre chaque séjour, linge de lit et serviettes de qualité hôtelière, état des lieux photographié.</p>
+      </article>
+      <article class="carte">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        <h3>Petites réparations</h3>
+        <p>Ampoule grillée, fuite, serrure capricieuse : on intervient ou on envoie le bon artisan avant l'arrivée suivante.</p>
+      </article>
+      <article class="carte">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        <h3>Déclarations &amp; règles 2026</h3>
+        <p>Numéro d'enregistrement national, plafonds de jours, nouvelles règles fiscales de la loi Le&nbsp;Meur : on suit tout, vous restez en règle.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. À-PROPOS ============ -->
+<section class="apropos" aria-labelledby="titre-apropos">
+  <div class="conteneur">
+    <span class="etiquette">Qui s'occupe de chez vous</span>
+    <h2 id="titre-apropos">Une conciergerie de Maisse, pas une plateforme</h2>
+    <p>Nous gérons des logements à Maisse et dans les communes voisines. Chaque bien est suivi par une personne qui le connaît : son code d'immeuble, son chauffe-eau, sa place de parking. Quand un voyageur appelle, quelqu'un qui est déjà venu chez vous répond.</p>
+    <p>Vous restez propriétaire de vos décisions : vos dates bloquées sont bloquées, votre logement est reloué à votre tarif validé, et vous recevez chaque mois un relevé clair — nuitées, revenus, frais, reversement.</p>
+    <div class="vignettes" aria-hidden="true">
+      <div class="vignette">
+        <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg"><rect width="320" height="240" fill="#EEF1F7"/><rect x="30" y="40" width="110" height="130" rx="6" fill="#D8DFEC"/><rect x="40" y="52" width="90" height="50" fill="#F7E9C4"/><rect x="40" y="110" width="90" height="50" fill="#C7D2E6"/><rect x="170" y="120" width="120" height="50" rx="10" fill="#16203A"/><rect x="180" y="100" width="100" height="30" rx="8" fill="#2A3A5F"/><rect x="176" y="168" width="12" height="22" fill="#16203A"/><rect x="272" y="168" width="12" height="22" fill="#16203A"/><circle cx="250" cy="60" r="22" fill="#F4EFDF"/><path d="M250 44v32M234 60h32" stroke="#8A6A16" stroke-width="3"/><rect x="0" y="196" width="320" height="44" fill="#E2E7F0"/></svg>
+      </div>
+      <div class="vignette">
+        <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg"><rect width="320" height="240" fill="#F4EFDF"/><rect x="96" y="34" width="128" height="172" rx="14" fill="#FFFFFF" stroke="#D8CFAF" stroke-width="2"/><circle cx="160" cy="62" r="9" fill="#16203A"/><circle cx="160" cy="128" r="26" fill="none" stroke="#8A6A16" stroke-width="6"/><rect x="154" y="150" width="12" height="40" fill="#8A6A16"/><rect x="166" y="170" width="12" height="8" fill="#8A6A16"/><rect x="166" y="182" width="16" height="8" fill="#8A6A16"/></svg>
+      </div>
+      <div class="vignette">
+        <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg"><rect width="320" height="240" fill="#EAF0EC"/><rect x="70" y="150" width="180" height="26" rx="4" fill="#FFFFFF" stroke="#D5DDD7" stroke-width="2"/><rect x="78" y="124" width="164" height="26" rx="4" fill="#F7F9F8" stroke="#D5DDD7" stroke-width="2"/><rect x="86" y="98" width="148" height="26" rx="4" fill="#FFFFFF" stroke="#D5DDD7" stroke-width="2"/><rect x="94" y="72" width="132" height="26" rx="4" fill="#F7F9F8" stroke="#D5DDD7" stroke-width="2"/><circle cx="248" cy="70" r="16" fill="#8A6A16"/><path d="M241 70l5 5 9-10" stroke="#FFFFFF" stroke-width="3" fill="none"/><rect x="0" y="188" width="320" height="52" fill="#DCE5DF"/></svg>
+      </div>
+    </div>
+    <p class="legende-vignettes">Sur votre site final : les photos professionnelles de vos logements, prises lors du reportage inclus.</p>
+  </div>
+</section>
+
+<!-- ============ 5. TÉMOIGNAGES ============ -->
+<section class="temoignages" aria-labelledby="titre-temoignages">
+  <div class="conteneur">
+    <span class="etiquette">Ils nous confient leurs clés</span>
+    <h2 id="titre-temoignages">Ce que disent les propriétaires</h2>
+    <div class="grille">
+      <blockquote>
+        <p>Mon T2 était en location classique, je touchais 980&nbsp;€. Passé en courte durée avec eux : 1&nbsp;540&nbsp;€ reversés en moyenne, ménage et voyageurs compris. Je n'ai littéralement rien à faire.</p>
+        <cite>Nathalie R., propriétaire d'un T2 près de la gare</cite>
+      </blockquote>
+      <blockquote>
+        <p>J'habite à 600&nbsp;km du studio de ma mère. Ils gèrent tout : les arrivées, une fuite un dimanche soir, le nouveau numéro d'enregistrement. Le relevé mensuel est limpide.</p>
+        <cite>Marc D., studio familial en centre-ville</cite>
+      </blockquote>
+      <blockquote>
+        <p>Trois lots chez eux depuis deux ans. Ce qui m'a convaincue : les tarifs qui montent tout seuls pendant les salons, et un taux d'occupation que je n'atteignais pas seule.</p>
+        <cite>Sofia B., investisseuse, 3 appartements</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. INFOS PRATIQUES ============ -->
+<section class="infos" aria-labelledby="titre-infos">
+  <div class="conteneur">
+    <span class="etiquette">Infos pratiques</span>
+    <h2 id="titre-infos">Nous joindre, nous confier vos clés</h2>
+    <div class="grille">
+      <div class="bloc">
+        <h3>Horaires</h3>
+        <dl class="horaires">
+          <div><dt>Lundi – Vendredi</dt><dd>9h – 19h</dd></div>
+          <div><dt>Samedi</dt><dd>10h – 18h</dd></div>
+          <div><dt>Dimanche</dt><dd>Arrivées &amp; urgences</dd></div>
+          <div><dt>Ligne voyageurs</dt><dd>7&nbsp;j/7</dd></div>
+        </dl>
+      </div>
+      <div class="bloc">
+        <h3>Adresse &amp; téléphone</h3>
+        <address>22 rue de Gironville, 91720 Maisse</address>
+        <a class="tel-bloc" href="tel:+33632113644">06 32 11 36 44</a>
+        <p style="font-size: var(--t-petit); color: var(--c-encre-2); margin-top: var(--e-3);">Estimation gratuite de vos revenus, au téléphone ou sur place.</p>
+      </div>
+      <div class="bloc">
+        <h3>Zone couverte</h3>
+        <ul class="zone">
+          <li>Maisse, tous quartiers</li>
+          <li>Communes voisines, à moins de 20&nbsp;minutes de nos équipes</li>
+          <li>Plus loin&nbsp;? Appelez, on vous dit franchement si on peut bien faire.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 7. FOOTER ============ -->
+<footer>
+  <div class="conteneur">
+    <p><strong>Kastell Patrimoine</strong> — conciergerie à Maisse. Des clés bien gardées, des voyageurs bien reçus.</p>
+    <p><a href="tel:+33632113644">06 32 11 36 44</a> · <a href="#">Mentions légales</a></p>
+  </div>
+</footer>
+
+<!-- ============ 8. STICKY D'APPEL MOBILE ============ -->
+<a class="sticky-appel" href="tel:+33632113644" aria-label="Appeler Kastell Patrimoine">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  Appeler le 06 32 11 36 44
+</a>
+
+<script>
+/* Confort uniquement : l'estimation s'actualise selon les choix.
+   Sans JavaScript, l'exemple par défaut reste affiché et tout fonctionne. */
+(function () {
+  var fourchettes = {
+    studio: [900, 1400, "un studio"],
+    t2: [1300, 1900, "un T2"],
+    t3: [1700, 2600, "un T3/T4"],
+    maison: [2000, 3200, "une maison"]
+  };
+  var type = document.getElementById("type-bien");
+  var mode = document.getElementById("mode-location");
+  var sortie = document.getElementById("fourchette");
+  var precision = document.getElementById("precision");
+  if (!type || !mode || !sortie || !precision) return;
+  function euros(n) {
+    return n.toLocaleString("fr-FR") + " €";
+  }
+  function maj() {
+    var f = fourchettes[type.value];
+    var facteur = mode.value === "principale" ? 0.35 : 1;
+    var bas = Math.round(f[0] * facteur / 50) * 50;
+    var haut = Math.round(f[1] * facteur / 50) * 50;
+    sortie.textContent = euros(bas) + " – " + euros(haut) + " / mois";
+    precision.textContent = mode.value === "principale"
+      ? "Revenus bruts indicatifs pour " + f[2] + " à Maisse, dans la limite des 90 jours/an."
+      : "Revenus bruts indicatifs pour " + f[2] + " à Maisse, selon quartier et saison.";
+  }
+  type.addEventListener("change", maj);
+  mode.addEventListener("change", maj);
+})();
+</script>
+</body>
+</html>

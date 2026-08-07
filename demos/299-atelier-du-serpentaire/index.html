@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier du Serpentaire — Paysagiste et jardinier à Paris 17e</title>
+<meta name="description" content="Atelier du Serpentaire, paysagiste à Paris 17e : création et entretien de jardins, taille de haies, élagage, terrasses et allées. Devis gratuit — appelez le 01 42 84 35 25.">
+<style>
+/* ==========================================================
+   Atelier du Serpentaire — template « paysagiste » (kit sites-prospects)
+   Palette : verts de feuillage sur fond sauge clair.
+   Signature : scène SVG de haies taillées au pied du hero.
+   ========================================================== */
+
+:root {
+  /* Palette métier */
+  --c-fond: #F0F3EB;             /* sauge très clair, lumière de serre */
+  --c-surface: #FFFFFF;          /* cartes */
+  --c-encre: #1F2B20;            /* vert-noir de sous-bois */
+  --c-encre-2: #55614F;          /* gris-vert, texte secondaire */
+  --c-accent: #2E6B34;           /* vert feuillage profond (actions) */
+  --c-accent-contraste: #FFFFFF; /* texte posé sur l'accent */
+
+  /* Échelle typographique fluide */
+  --t-hero:      clamp(2.25rem, 7vw, 4rem);
+  --t-sous-hero: clamp(1.05rem, 2.5vw, 1.375rem);
+  --t-h2:        clamp(1.5rem, 4vw, 2.25rem);
+  --t-h3:        1.1875rem;
+  --t-corps:     1.0625rem;
+  --t-petit:     0.875rem;
+  --t-etiquette: 0.8125rem;
+
+  /* Échelle d'espacement (base 8 px) */
+  --e-1: 0.25rem;
+  --e-2: 0.5rem;
+  --e-3: 0.75rem;
+  --e-4: 1rem;
+  --e-5: 1.5rem;
+  --e-6: 2rem;
+  --e-7: 3rem;
+  --e-8: 4rem;
+  --e-9: 6rem;
+}
+
+/* ---------- Socle ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--t-corps);
+  line-height: 1.6;
+  color: var(--c-encre);
+  background: var(--c-fond);
+  /* Réserve pour le bouton d'appel sticky mobile */
+  padding-bottom: 5.5rem;
+}
+
+img, svg { max-width: 100%; height: auto; }
+
+a { color: var(--c-accent); }
+
+:focus-visible {
+  outline: 3px solid var(--c-encre);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.fond-sombre :focus-visible,
+.hero-scene ~ * :focus-visible { outline-color: var(--c-accent-contraste); }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.conteneur {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: var(--e-4);
+}
+
+section { padding-block: var(--e-8); }
+
+.etiquette {
+  display: block;
+  font-size: var(--t-etiquette);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-accent);
+  margin-bottom: var(--e-3);
+}
+
+h2 {
+  font-size: var(--t-h2);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: var(--e-5);
+}
+
+h3 {
+  font-size: var(--t-h3);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+p { max-width: 65ch; }
+
+/* ---------- Boutons d'appel ---------- */
+.btn-appel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-3);
+  min-height: 3.5rem; /* 56 px */
+  padding: var(--e-3) var(--e-6);
+  background: var(--c-accent);
+  color: var(--c-accent-contraste);
+  font-size: var(--t-corps);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(31, 43, 32, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-appel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(31, 43, 32, 0.28);
+}
+.btn-appel .ico { width: 1.25rem; height: 1.25rem; flex: none; }
+
+.btn-secondaire {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem; /* 48 px */
+  padding: var(--e-2) var(--e-5);
+  border: 2px solid var(--c-encre);
+  border-radius: 999px;
+  color: var(--c-encre);
+  font-weight: 600;
+  text-decoration: none;
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+.btn-secondaire:hover { background: rgba(46, 107, 52, 0.1); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- 1. Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--c-fond) 0%, #E3EBDA 100%);
+}
+
+.hero-contenu {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--e-7) var(--e-6);
+  text-align: left;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-contenu { animation: lever 0.35s ease-out both; }
+  @keyframes lever {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+
+.hero h1 {
+  font-size: var(--t-hero);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+  margin-bottom: var(--e-3);
+}
+
+.hero .sous-hero {
+  font-size: var(--t-sous-hero);
+  color: var(--c-encre-2);
+  max-width: 32ch;
+  margin-bottom: var(--e-6);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-4);
+  margin-bottom: var(--e-6);
+}
+
+/* Élément signature : haies taillées en couches, pleine largeur */
+.hero-scene {
+  display: block;
+  width: 100%;
+  height: clamp(7rem, 22vw, 13rem);
+  margin-top: auto;
+}
+
+/* ---------- 2. Bandeau confiance ---------- */
+.confiance {
+  background: var(--c-encre);
+  color: var(--c-fond);
+  padding-block: var(--e-6);
+}
+.confiance ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--e-4) var(--e-5);
+}
+.confiance li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-2);
+  font-size: var(--t-petit);
+  font-weight: 600;
+  line-height: 1.4;
+}
+.confiance .puce {
+  width: 1.1rem; height: 1.1rem;
+  flex: none;
+  margin-top: 0.1rem;
+  color: var(--c-accent-contraste);
+  opacity: 0.85;
+}
+
+/* ---------- 3. Services ---------- */
+.services-grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-5);
+  list-style: none;
+}
+.carte-service {
+  background: var(--c-surface);
+  border: 1px solid rgba(31, 43, 32, 0.08);
+  border-radius: 16px;
+  padding: var(--e-5);
+  box-shadow: 0 2px 10px rgba(31, 43, 32, 0.05);
+}
+.carte-service .ico-rond {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem; height: 3rem;
+  border-radius: 50%;
+  background: rgba(46, 107, 52, 0.1);
+  color: var(--c-accent);
+  margin-bottom: var(--e-4);
+}
+.carte-service .ico-rond svg { width: 1.5rem; height: 1.5rem; }
+.carte-service h3 { margin-bottom: var(--e-2); }
+.carte-service p { color: var(--c-encre-2); font-size: 1rem; }
+
+/* ---------- 4. À-propos ---------- */
+.a-propos { background: var(--c-surface); }
+.a-propos p + p { margin-top: var(--e-4); }
+.a-propos p { color: var(--c-encre); }
+
+/* ---------- 5. Témoignages ---------- */
+.temoignages-grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-5);
+}
+.temoignage {
+  background: var(--c-surface);
+  border: 1px solid rgba(31, 43, 32, 0.08);
+  border-radius: 16px;
+  padding: var(--e-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+}
+.temoignage .feuille {
+  width: 1.75rem; height: 1.75rem;
+  color: var(--c-accent);
+  flex: none;
+}
+.temoignage p {
+  font-size: 1rem;
+  color: var(--c-encre);
+}
+.temoignage cite {
+  font-style: normal;
+  font-size: var(--t-petit);
+  font-weight: 600;
+  color: var(--c-encre-2);
+  margin-top: auto;
+}
+
+/* ---------- 6. Infos pratiques ---------- */
+.infos-grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-5);
+}
+.carte-info {
+  background: var(--c-surface);
+  border: 1px solid rgba(31, 43, 32, 0.08);
+  border-radius: 16px;
+  padding: var(--e-5);
+}
+.carte-info h3 { margin-bottom: var(--e-4); }
+.horaires { list-style: none; }
+.horaires li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--e-4);
+  padding-block: var(--e-2);
+  border-bottom: 1px solid rgba(31, 43, 32, 0.08);
+  font-size: 1rem;
+}
+.horaires li:last-child { border-bottom: 0; }
+.horaires .jour { font-weight: 600; }
+.horaires .heures { color: var(--c-encre-2); text-align: right; }
+.contact-ligne {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-3);
+  margin-bottom: var(--e-4);
+  font-size: 1rem;
+}
+.contact-ligne .ico {
+  width: 1.25rem; height: 1.25rem;
+  flex: none;
+  margin-top: 0.2rem;
+  color: var(--c-accent);
+}
+.contact-ligne a {
+  color: var(--c-accent);
+  font-weight: 600;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+}
+.note-devis {
+  margin-top: var(--e-4);
+  font-size: var(--t-petit);
+  color: var(--c-encre-2);
+}
+
+/* ---------- 7. Footer ---------- */
+.pied {
+  background: var(--c-encre);
+  color: var(--c-fond);
+  padding-block: var(--e-7);
+  font-size: var(--t-petit);
+}
+.pied .conteneur {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+}
+.pied a {
+  color: var(--c-fond);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+}
+.pied .ambiance { opacity: 0.75; }
+
+/* ---------- 8. Bouton d'appel sticky (mobile) ---------- */
+.sticky-appel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-3);
+  min-height: 3.5rem; /* 56 px */
+  margin: var(--e-3);
+  background: var(--c-accent);
+  color: var(--c-accent-contraste);
+  font-weight: 600;
+  font-size: var(--t-corps);
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(31, 43, 32, 0.35);
+}
+.sticky-appel .ico { width: 1.25rem; height: 1.25rem; flex: none; }
+
+/* ---------- Enrichissements ≥ 768 px ---------- */
+@media (min-width: 768px) {
+  body { padding-bottom: 0; }
+  .sticky-appel { display: none; }
+  .conteneur { padding-inline: var(--e-6); }
+  section { padding-block: var(--e-9); }
+  .hero-contenu { padding-block: var(--e-8) var(--e-7); }
+  .confiance ul { grid-template-columns: repeat(4, 1fr); }
+  .services-grille { grid-template-columns: 1fr 1fr; }
+  .temoignages-grille { grid-template-columns: repeat(3, 1fr); }
+  .infos-grille { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 1024px) {
+  .services-grille { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== 1. HERO ========== -->
+<header class="hero">
+  <div class="conteneur hero-contenu">
+    <span class="etiquette">Paysagiste · Jardinier à Paris 17e</span>
+    <h1>Atelier du Serpentaire</h1>
+    <p class="sous-hero">Création, entretien et taille de jardins. Un artisan local qui façonne le vôtre, saison après saison.</p>
+    <div class="hero-actions">
+      <a class="btn-appel" href="tel:+33142843525">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Appeler maintenant — 01 42 84 35 25
+      </a>
+      <a class="btn-secondaire" href="#services">Voir nos services</a>
+    </div>
+  </div>
+  <!-- Élément signature : haies taillées en trois plans -->
+  <svg class="hero-scene" viewBox="0 0 1440 240" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <!-- collines lointaines -->
+    <path fill="var(--c-accent)" fill-opacity="0.16" d="M0 190 C240 130 480 150 720 165 C960 180 1200 135 1440 165 L1440 240 L0 240 Z"/>
+    <!-- haies du second plan -->
+    <path fill="var(--c-accent)" fill-opacity="0.38" d="M0 240 C30 180 150 180 180 240 C210 190 330 190 360 240 C390 175 510 175 540 240 C570 195 690 195 720 240 C750 180 870 180 900 240 C930 190 1050 190 1080 240 C1110 175 1230 175 1260 240 C1290 195 1410 195 1440 240 Z"/>
+    <!-- arbre-tige taillé en boule -->
+    <rect x="1164" y="150" width="12" height="90" rx="5" fill="var(--c-encre)"/>
+    <circle cx="1170" cy="112" r="52" fill="var(--c-accent)"/>
+    <!-- topiaire basse -->
+    <rect x="296" y="196" width="7" height="44" rx="3" fill="var(--c-encre)"/>
+    <circle cx="299.5" cy="176" r="26" fill="var(--c-accent)"/>
+    <!-- haies taillées du premier plan -->
+    <path fill="var(--c-accent)" d="M-20 240 L-20 214 Q40 196 100 210 Q104 184 160 184 Q216 184 220 210 Q290 198 340 214 L340 240 Z"/>
+    <path fill="var(--c-accent)" d="M420 240 L420 210 Q470 192 540 200 Q548 176 600 176 Q652 176 660 200 Q730 192 780 212 L780 240 Z"/>
+    <path fill="var(--c-accent)" d="M860 240 L860 216 Q930 198 1000 210 L1000 240 Z"/>
+    <path fill="var(--c-accent)" d="M1280 240 L1280 212 Q1340 194 1400 204 Q1420 200 1460 210 L1460 240 Z"/>
+    <!-- brins d'herbe -->
+    <g stroke="var(--c-encre)" stroke-width="4" stroke-linecap="round" fill="none">
+      <path d="M380 240 C378 224 372 214 364 208"/>
+      <path d="M392 240 C392 222 396 212 404 204"/>
+      <path d="M1040 240 C1038 226 1032 218 1026 214"/>
+      <path d="M1052 240 C1052 224 1058 214 1064 208"/>
+    </g>
+  </svg>
+</header>
+
+<main>
+
+  <!-- ========== 2. BANDEAU CONFIANCE ========== -->
+  <section class="confiance fond-sombre" aria-label="Nos engagements">
+    <h2 class="sr-only">Nos engagements</h2>
+    <div class="conteneur">
+      <ul>
+        <li>
+          <svg class="puce" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Artisan paysagiste depuis 2009
+        </li>
+        <li>
+          <svg class="puce" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Devis gratuit sous 48 h
+        </li>
+        <li>
+          <svg class="puce" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Crédit d'impôt de 50&nbsp;% sur l'entretien
+        </li>
+        <li>
+          <svg class="puce" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Déchets verts évacués après chaque chantier
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== 3. SERVICES ========== -->
+  <section id="services">
+    <div class="conteneur">
+      <span class="etiquette">Nos services</span>
+      <h2>Le jardin, du sol à la cime</h2>
+      <ul class="services-grille">
+        <li class="carte-service">
+          <span class="ico-rond">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12C12 8 9.5 6 5.5 6c0 4 2.5 6 6.5 6z"/><path d="M12 12c0-4 2.5-6 6.5-6 0 4-2.5 6-6.5 6z"/><path d="M5 21h14"/></svg>
+          </span>
+          <h3>Création de jardins</h3>
+          <p>Du plan à la plantation : massifs, engazonnement, arbres et arbustes choisis pour votre sol et votre exposition.</p>
+        </li>
+        <li class="carte-service">
+          <span class="ico-rond">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20h17"/><path d="M7 20c0-3-1-5-3-7"/><path d="M10.5 20c0-4 0-7 2-9.5"/><path d="M14 20c0-3 1.5-6 4.5-8"/><path d="M17 20c0-2 1.5-3.5 3.5-4.5"/></svg>
+          </span>
+          <h3>Tonte &amp; entretien régulier</h3>
+          <p>Tonte, débroussaillage, désherbage des massifs. Un passage à la fréquence qui convient à votre terrain.</p>
+        </li>
+        <li class="carte-service">
+          <span class="ico-rond">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><path d="M8.2 7.5 20 17.5"/><path d="M8.2 16.5 20 6.5"/></svg>
+          </span>
+          <h3>Taille de haies &amp; arbustes</h3>
+          <p>Haies au cordeau, topiaires, arbustes taillés à la bonne période pour une reprise vigoureuse au printemps.</p>
+        </li>
+        <li class="carte-service">
+          <span class="ico-rond">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="5"/><path d="M12 13.5V21"/><path d="M12 17l-3-2.5"/><path d="M8.5 21h7"/></svg>
+          </span>
+          <h3>Élagage &amp; abattage</h3>
+          <p>Taille douce, éclaircie ou abattage sécurisé, y compris en accès difficile. Bois découpé laissé sur place si vous le souhaitez.</p>
+        </li>
+        <li class="carte-service">
+          <span class="ico-rond">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13.5" width="8" height="5.5" rx="1"/><rect x="13" y="13.5" width="8" height="5.5" rx="1"/><rect x="8" y="6" width="8" height="5.5" rx="1"/></svg>
+          </span>
+          <h3>Terrasses &amp; allées</h3>
+          <p>Pavés, dalles, gravier stabilisé : des cheminements propres qui structurent le jardin et vieillissent bien.</p>
+        </li>
+        <li class="carte-service">
+          <span class="ico-rond">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5s5.5 6.5 5.5 10.5a5.5 5.5 0 0 1-11 0C6.5 10 12 3.5 12 3.5z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></svg>
+          </span>
+          <h3>Arrosage automatique</h3>
+          <p>Installation et réglage de systèmes enterrés ou goutte-à-goutte, pour un jardin vert sans y penser.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== 4. À-PROPOS ========== -->
+  <section class="a-propos">
+    <div class="conteneur">
+      <span class="etiquette">Qui sommes-nous</span>
+      <h2>Des jardiniers d'ici</h2>
+      <p>Atelier du Serpentaire, c'est une petite équipe de jardiniers-paysagistes installée à Paris 17e. Nous connaissons les sols du coin, les gelées tardives, les étés secs — et les plantes qui s'y plaisent vraiment. Chaque jardin qu'on nous confie, on le traite comme le nôtre&nbsp;: on tire le cordeau, on affûte les lames, on ramasse tout en partant.</p>
+      <p>Grand terrain ou courette de ville, contrat d'entretien à l'année ou chantier unique&nbsp;: on commence toujours par venir voir sur place, gratuitement. Vous saurez ce qu'on propose, quand on le fait et combien ça coûte — avant de vous décider.</p>
+    </div>
+  </section>
+
+  <!-- ========== 5. TÉMOIGNAGES ========== -->
+  <section>
+    <div class="conteneur">
+      <span class="etiquette">Ils nous font confiance</span>
+      <h2>Paroles de voisins</h2>
+      <div class="temoignages-grille">
+        <blockquote class="temoignage">
+          <svg class="feuille" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16z" fill="currentColor" fill-opacity="0.15"/><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5.5 18.5C9.5 14.5 13 11 16.5 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <p>La haie de charmes penchait dangereusement vers chez le voisin. Taille impeccable, cordeau tiré, et plus une feuille sur le trottoir en partant. On les rappelle au printemps pour les massifs.</p>
+          <cite>Camille R. — quartier de la gare</cite>
+        </blockquote>
+        <blockquote class="temoignage">
+          <svg class="feuille" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16z" fill="currentColor" fill-opacity="0.15"/><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5.5 18.5C9.5 14.5 13 11 16.5 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <p>Ils ont repris un terrain laissé à l'abandon depuis trois ans&nbsp;: débroussaillage, élagage des deux cerisiers, nouvelle pelouse semée en septembre. Six mois plus tard, le jardin est méconnaissable. Travail expliqué, délais tenus, prix annoncé respecté.</p>
+          <cite>Jean-Marc L. — maison avec 2&nbsp;000&nbsp;m² de terrain</cite>
+        </blockquote>
+        <blockquote class="temoignage">
+          <svg class="feuille" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16z" fill="currentColor" fill-opacity="0.15"/><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5.5 18.5C9.5 14.5 13 11 16.5 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <p>Tonte tous les quinze jours, taille en juin et en octobre. C'est toujours net, et je n'ai plus à y penser.</p>
+          <cite>Odile P. — contrat d'entretien à l'année</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 6. INFOS PRATIQUES ========== -->
+  <section class="a-propos">
+    <div class="conteneur">
+      <span class="etiquette">Infos pratiques</span>
+      <h2>Nous trouver, nous appeler</h2>
+      <div class="infos-grille">
+        <div class="carte-info">
+          <h3>Horaires</h3>
+          <ul class="horaires">
+            <li><span class="jour">Lundi</span> <span class="heures">8&nbsp;h&nbsp;–&nbsp;18&nbsp;h</span></li>
+            <li><span class="jour">Mardi</span> <span class="heures">8&nbsp;h&nbsp;–&nbsp;18&nbsp;h</span></li>
+            <li><span class="jour">Mercredi</span> <span class="heures">8&nbsp;h&nbsp;–&nbsp;18&nbsp;h</span></li>
+            <li><span class="jour">Jeudi</span> <span class="heures">8&nbsp;h&nbsp;–&nbsp;18&nbsp;h</span></li>
+            <li><span class="jour">Vendredi</span> <span class="heures">8&nbsp;h&nbsp;–&nbsp;17&nbsp;h</span></li>
+            <li><span class="jour">Samedi</span> <span class="heures">9&nbsp;h&nbsp;–&nbsp;12&nbsp;h, sur rendez-vous</span></li>
+            <li><span class="jour">Dimanche</span> <span class="heures">Fermé</span></li>
+          </ul>
+        </div>
+        <div class="carte-info">
+          <h3>Contact</h3>
+          <p class="contact-ligne">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.5-7-11.5a7 7 0 0 1 14 0C19 14.5 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            199 boulevard Pereire, 75017 Paris
+          </p>
+          <p class="contact-ligne">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <a href="tel:+33142843525">01 42 84 35 25</a>
+          </p>
+          <p class="contact-ligne">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 12h17M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Zone d'intervention&nbsp;: Paris 17e et ses environs (25&nbsp;km)
+          </p>
+          <p class="note-devis">Devis gratuit établi sur place, sans engagement. Intervention possible chez les particuliers comme pour les copropriétés et commerces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== 7. FOOTER ========== -->
+<footer class="pied fond-sombre">
+  <div class="conteneur">
+    <p><strong>Atelier du Serpentaire</strong> — Paysagiste à Paris 17e</p>
+    <p><a href="tel:+33142843525">01 42 84 35 25</a></p>
+    <p><a href="#">Mentions légales</a></p>
+    <p class="ambiance">Jardins créés et entretenus avec soin, au fil des saisons.</p>
+  </div>
+</footer>
+
+<!-- ========== 8. BOUTON D'APPEL STICKY (mobile) ========== -->
+<a class="sticky-appel" href="tel:+33142843525" aria-label="Appeler Atelier du Serpentaire">
+  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  Appeler 01 42 84 35 25
+</a>
+
+</body>
+</html>

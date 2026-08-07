@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'Entracte · Brasserie &amp; pizzeria au feu de bois à Gennevilliers</title>
+<meta name="description" content="L'Entracte, brasserie et pizzeria au feu de bois à Gennevilliers : pizzas à pâte maturée 48 h, plats de brasserie, menu du midi, pizzas à emporter. Réservation au 06 23 65 67 80.">
+<style>
+:root {
+  /* Palette — devanture de brasserie : vert bouteille, blanc farine, braise */
+  --c-fond: #FAF7F0;
+  --c-surface: #FFFFFF;
+  --c-encre: #1C3527;
+  --c-encre-2: #57675B;
+  --c-accent: #B23A22;
+  --c-accent-contraste: #FFF7F0;
+
+  /* Échelle typographique */
+  --t-hero:      clamp(2.25rem, 7vw, 4rem);
+  --t-sous-hero: clamp(1.05rem, 2.5vw, 1.375rem);
+  --t-h2:        clamp(1.5rem, 4vw, 2.25rem);
+  --t-h3:        1.1875rem;
+  --t-corps:     1.0625rem;
+  --t-petit:     0.875rem;
+  --t-etiquette: 0.8125rem;
+
+  /* Échelle d'espacement (base 8) */
+  --e-1: 0.25rem;
+  --e-2: 0.5rem;
+  --e-3: 0.75rem;
+  --e-4: 1rem;
+  --e-5: 1.5rem;
+  --e-6: 2rem;
+  --e-7: 3rem;
+  --e-8: 4rem;
+  --e-9: 6rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--t-corps);
+  line-height: 1.6;
+  color: var(--c-encre);
+  background: var(--c-fond);
+  padding-bottom: var(--e-9); /* dégage le bouton d'appel sticky mobile */
+}
+
+img, svg { max-width: 100%; height: auto; }
+a { color: inherit; }
+p { margin: 0 0 var(--e-4); }
+
+.conteneur {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: var(--e-4);
+}
+
+.bloc { padding-block: var(--e-8); }
+
+.etiquette {
+  display: block;
+  font-size: var(--t-etiquette);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-encre-2);
+  margin: 0 0 var(--e-2);
+}
+
+h2 {
+  font-size: var(--t-h2);
+  line-height: 1.15;
+  font-weight: 800;
+  margin: 0 0 var(--e-5);
+}
+
+h3 {
+  font-size: var(--t-h3);
+  font-weight: 600;
+  margin: 0 0 var(--e-2);
+}
+
+.texte-courant { max-width: 65ch; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-2);
+  min-height: 3.5rem;
+  padding: var(--e-3) var(--e-5);
+  border-radius: 999px;
+  background: var(--c-accent);
+  color: var(--c-accent-contraste);
+  font-weight: 600;
+  font-size: var(--t-corps);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(178, 58, 34, 0.35);
+}
+.btn-secondaire {
+  background: transparent;
+  color: var(--c-fond);
+  border: 1px solid rgba(250, 247, 240, 0.45);
+  box-shadow: none;
+}
+.btn-secondaire:hover { box-shadow: none; border-color: rgba(250, 247, 240, 0.8); }
+
+a:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--c-accent);
+  outline-offset: 2px;
+}
+.hero a:focus-visible, .infos a:focus-visible, footer a:focus-visible, .appel-sticky:focus-visible {
+  outline-color: var(--c-fond);
+}
+
+/* ---------- 1. Hero ---------- */
+.hero {
+  background-color: var(--c-encre);
+  background-image: radial-gradient(42rem 26rem at 85% -10%, rgba(224, 122, 61, 0.20), transparent 70%);
+  color: var(--c-fond);
+}
+.hero .conteneur { padding-block: var(--e-8) var(--e-8); }
+.hero .etiquette {
+  color: rgba(250, 247, 240, 0.75);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-2);
+}
+.hero h1 {
+  font-size: var(--t-hero);
+  line-height: 1.15;
+  font-weight: 800;
+  margin: var(--e-3) 0 var(--e-4);
+  overflow-wrap: break-word;
+}
+.sous-hero {
+  font-size: var(--t-sous-hero);
+  line-height: 1.6;
+  color: rgba(250, 247, 240, 0.88);
+  max-width: 42ch;
+  margin: 0 0 var(--e-6);
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--e-3); }
+
+/* Élément signature : lambrequin de store (bord festonné de la devanture) */
+.lambrequin {
+  height: 1.375rem;
+  background-image: radial-gradient(circle at 50% 0, var(--c-encre) 70.5%, rgba(28, 53, 39, 0) 71.5%);
+  background-size: 2.75rem 1.375rem;
+  background-repeat: repeat-x;
+}
+
+/* ---------- 2. Bandeau confiance ---------- */
+.confiance {
+  background: var(--c-surface);
+  border-bottom: 1px solid rgba(28, 53, 39, 0.10);
+  padding-block: var(--e-5);
+}
+.confiance ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--e-4) var(--e-5);
+}
+.confiance li {
+  font-size: var(--t-petit);
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
+}
+.confiance li::before {
+  content: "";
+  display: block;
+  width: var(--e-4);
+  height: 2px;
+  border-radius: 2px;
+  background: var(--c-accent);
+  margin: 0 auto var(--e-2);
+}
+
+/* ---------- 3. Services ---------- */
+.grille-services {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-5);
+}
+.carte {
+  background: var(--c-surface);
+  border: 1px solid rgba(28, 53, 39, 0.10);
+  border-radius: 0.75rem;
+  padding: var(--e-5);
+  box-shadow: 0 1px 2px rgba(28, 53, 39, 0.05), 0 8px 24px rgba(28, 53, 39, 0.05);
+}
+.carte p { margin: 0; color: var(--c-encre-2); }
+.pastille {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background: rgba(28, 53, 39, 0.08);
+  color: var(--c-encre);
+  display: grid;
+  place-items: center;
+  margin-bottom: var(--e-4);
+}
+
+/* ---------- 5. Témoignages ---------- */
+.grille-temoignages {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-5);
+}
+.grille-temoignages blockquote {
+  margin: 0;
+  background: var(--c-surface);
+  border: 1px solid rgba(28, 53, 39, 0.10);
+  border-radius: 0.75rem;
+  padding: var(--e-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+}
+.grille-temoignages blockquote p { margin: 0; }
+.grille-temoignages cite {
+  font-style: normal;
+  font-size: var(--t-petit);
+  font-weight: 600;
+  color: var(--c-encre-2);
+  margin-top: auto;
+}
+
+/* ---------- 6. Infos pratiques ---------- */
+.infos {
+  background: var(--c-encre);
+  color: var(--c-fond);
+}
+.infos .etiquette { color: rgba(250, 247, 240, 0.7); }
+.grille-infos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-7);
+}
+.horaires { margin: 0; }
+.horaires > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--e-4);
+  padding-block: var(--e-3);
+  border-bottom: 1px solid rgba(250, 247, 240, 0.18);
+}
+.horaires dt { font-weight: 600; }
+.horaires dd { margin: 0; text-align: right; color: rgba(250, 247, 240, 0.85); }
+.infos address { font-style: normal; margin: 0 0 var(--e-5); color: rgba(250, 247, 240, 0.88); }
+.infos .note { font-size: var(--t-petit); color: rgba(250, 247, 240, 0.7); margin: var(--e-4) 0 0; }
+
+/* ---------- 7. Footer ---------- */
+footer {
+  background: var(--c-encre);
+  color: rgba(250, 247, 240, 0.8);
+  border-top: 1px solid rgba(250, 247, 240, 0.18);
+  padding-block: var(--e-6);
+  font-size: var(--t-petit);
+}
+footer .conteneur {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-2) var(--e-5);
+}
+footer a {
+  display: inline-block;
+  padding: var(--e-3);
+  margin: calc(-1 * var(--e-3)) 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+footer .ambiance { margin: 0; width: 100%; color: rgba(250, 247, 240, 0.6); }
+
+/* ---------- 8. Bouton d'appel sticky (mobile) ---------- */
+.appel-sticky {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-2);
+  min-height: 3.5rem;
+  padding: var(--e-3) var(--e-4);
+  padding-bottom: calc(var(--e-3) + env(safe-area-inset-bottom));
+  background: var(--c-accent);
+  color: var(--c-accent-contraste);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 -4px 16px rgba(28, 53, 39, 0.25);
+}
+
+/* ---------- ≥ 768 px ---------- */
+@media (min-width: 768px) {
+  body { padding-bottom: 0; }
+  .appel-sticky { display: none; }
+  .conteneur { padding-inline: var(--e-6); }
+  .bloc { padding-block: var(--e-9); }
+  .hero .conteneur { padding-block: var(--e-9); }
+  .confiance ul { grid-template-columns: repeat(4, 1fr); }
+  .grille-services { grid-template-columns: repeat(2, 1fr); }
+  .grille-temoignages { grid-template-columns: repeat(3, 1fr); }
+  .grille-infos { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- ≥ 1024 px ---------- */
+@media (min-width: 1024px) {
+  .grille-services { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 1. Hero -->
+<header class="hero">
+  <div class="conteneur">
+    <span class="etiquette">
+      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c1.2 2.6-2.4 4-2.4 7.3a4.4 4.4 0 0 0 8.8 0c0-1.8-.9-3.2-1.9-4.2 0 1.4-.8 2.3-1.8 2.5.4-1.9-.6-4-2.7-5.6z"/><path d="M6 21h12"/></svg>
+      Brasserie · Pizzeria au feu de bois
+    </span>
+    <h1>L'Entracte</h1>
+    <p class="sous-hero">Pizzas à pâte maturée 48 heures et cuisine de brasserie, au cœur de Gennevilliers. Le four est allumé, la grande table vous attend.</p>
+    <div class="hero-actions">
+      <a class="btn" href="tel:+33623656780">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1.5V19a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 6.2 2 2 0 0 1 5 4z"/></svg>
+        Réserver une table · 06 23 65 67 80
+      </a>
+      <a class="btn btn-secondaire" href="#infos">Voir les horaires</a>
+    </div>
+  </div>
+</header>
+<div class="lambrequin" aria-hidden="true"></div>
+
+<main>
+
+  <!-- 2. Bandeau confiance -->
+  <section class="confiance">
+    <h2 class="sr-only">Pourquoi venir chez nous</h2>
+    <div class="conteneur">
+      <ul>
+        <li>Four à bois allumé chaque matin</li>
+        <li>Pâte maturée 48 heures</li>
+        <li>Produits frais du marché</li>
+        <li>À emporter en 15 minutes</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. Services -->
+  <section class="bloc">
+    <div class="conteneur">
+      <span class="etiquette">La carte</span>
+      <h2>Du four à bois à l'assiette</h2>
+      <div class="grille-services">
+        <article class="carte">
+          <div class="pastille"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c1.2 2.6-2.4 4-2.4 7.3a4.4 4.4 0 0 0 8.8 0c0-1.8-.9-3.2-1.9-4.2 0 1.4-.8 2.3-1.8 2.5.4-1.9-.6-4-2.7-5.6z"/><path d="M5 21h14"/></svg></div>
+          <h3>Pizzas au feu de bois</h3>
+          <p>Pâte maturée 48 heures, cuite 90 secondes à 400 °C. Marguerite, quatre fromages, calzone : la carte suit les saisons.</p>
+        </article>
+        <article class="carte">
+          <div class="pastille"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h16"/><path d="M5 17a7 7 0 0 1 14 0"/><circle cx="12" cy="7.5" r="1"/><path d="M3 20h18"/></svg></div>
+          <h3>Plats de brasserie</h3>
+          <p>Entrecôte-frites, tartare préparé au couteau, burger maison. Des assiettes généreuses, servies midi et soir.</p>
+        </article>
+        <article class="carte">
+          <div class="pastille"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></div>
+          <h3>Menu du midi</h3>
+          <p>Entrée, plat, dessert du mardi au vendredi, écrits chaque matin à l'ardoise. Servi en 45 minutes, promis.</p>
+        </article>
+        <article class="carte">
+          <div class="pastille"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.2 12a1.5 1.5 0 0 1-1.5 1.4H8.7a1.5 1.5 0 0 1-1.5-1.4L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></div>
+          <h3>Pizzas à emporter</h3>
+          <p>Commandez par téléphone, votre pizza est prête en 15 minutes. Elle arrive encore chaude à la maison.</p>
+        </article>
+        <article class="carte">
+          <div class="pastille"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16 5.9a3.2 3.2 0 0 1 0 5.2"/><path d="M17.5 15.5a5.5 5.5 0 0 1 3 4.5"/></svg></div>
+          <h3>Groupes &amp; repas d'équipe</h3>
+          <p>Anniversaires, repas d'entreprise : la grande table du fond accueille jusqu'à 20 couverts, menu unique sur demande.</p>
+        </article>
+        <article class="carte">
+          <div class="pastille"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-1 8a3 3 0 0 1-3 2.7A3 3 0 0 1 9 11L8 3z"/><path d="M12 14v6"/><path d="M8 21h8"/></svg></div>
+          <h3>Desserts maison</h3>
+          <p>Tiramisu au café monté le matin même, moelleux au chocolat, café gourmand. Rien ne sort d'un carton.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. À propos -->
+  <section class="bloc">
+    <div class="conteneur">
+      <span class="etiquette">La maison</span>
+      <h2>Une brasserie de quartier, un vrai four à bois</h2>
+      <div class="texte-courant">
+        <p>Notre maison, c'est d'abord un four à bois qu'on allume chaque matin et une carte courte qu'on écrit à l'ardoise. Les légumes viennent du marché de Gennevilliers, la farine d'un moulin de la région, la viande de notre boucher voisin. En cuisine comme en salle, on aime les choses simples et bien faites : une pâte qui a eu le temps de reposer, une entrecôte cuite comme vous l'aimez, un café serré pour finir.</p>
+        <p>Le midi, on sert vite pour ceux qui travaillent. Le soir, on prend le temps. Poussez la porte : la grande table du fond est souvent la plus joyeuse.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Témoignages -->
+  <section class="bloc">
+    <div class="conteneur">
+      <span class="etiquette">Ils en parlent</span>
+      <h2>Ce que disent nos clients</h2>
+      <div class="grille-temoignages">
+        <blockquote>
+          <p>« La marguerite est cuite au feu de bois et ça se sent : pâte fine, bords gonflés, juste ce qu'il faut de fumé. On y retourne tous les vendredis. »</p>
+          <cite>Julien R. — habitué du vendredi soir</cite>
+        </blockquote>
+        <blockquote>
+          <p>« Menu du midi servi en moins de trois quarts d'heure, parfait entre deux rendez-vous. Le tartare au couteau vaut le détour. »</p>
+          <cite>Claire M. — quartier de la gare</cite>
+        </blockquote>
+        <blockquote>
+          <p>« Nous avons fêté les 70 ans de mon père à la grande table du fond. Service attentionné du début à la fin, tiramisu maison, et le patron est venu trinquer avec nous au dessert. Toute la famille en reparle encore. »</p>
+          <cite>Antoine &amp; Sofia — repas de famille en mars</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Infos pratiques -->
+  <section class="bloc infos" id="infos">
+    <div class="conteneur">
+      <span class="etiquette">Infos pratiques</span>
+      <h2>Horaires, adresse &amp; réservation</h2>
+      <div class="grille-infos">
+        <div>
+          <h3>Horaires d'ouverture</h3>
+          <dl class="horaires">
+            <div><dt>Lundi</dt><dd>Fermé</dd></div>
+            <div><dt>Mardi</dt><dd>12h–14h · 19h–22h</dd></div>
+            <div><dt>Mercredi</dt><dd>12h–14h · 19h–22h</dd></div>
+            <div><dt>Jeudi</dt><dd>12h–14h · 19h–22h</dd></div>
+            <div><dt>Vendredi</dt><dd>12h–14h · 19h–22h30</dd></div>
+            <div><dt>Samedi</dt><dd>12h–14h30 · 19h–22h30</dd></div>
+            <div><dt>Dimanche</dt><dd>12h–14h30 · fermé le soir</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3>Nous trouver</h3>
+          <address>1 rue Georges, 92230 Gennevilliers</address>
+          <a class="btn" href="tel:+33623656780">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1.5V19a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 6.2 2 2 0 0 1 5 4z"/></svg>
+            Appeler · 06 23 65 67 80
+          </a>
+          <p class="note">Réservation conseillée le week-end. Pizzas à emporter sur simple appel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 7. Footer -->
+<footer>
+  <div class="conteneur">
+    <p class="ambiance">La grande table du fond vous attend.</p>
+    <span>L'Entracte — Gennevilliers</span>
+    <a href="tel:+33623656780">06 23 65 67 80</a>
+    <a href="#">Mentions légales</a>
+  </div>
+</footer>
+
+<!-- 8. Bouton d'appel sticky (mobile) -->
+<a class="appel-sticky" href="tel:+33623656780" aria-label="Appeler L'Entracte">
+  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1.5V19a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 6.2 2 2 0 0 1 5 4z"/></svg>
+  Réserver une table · 06 23 65 67 80
+</a>
+
+</body>
+</html>

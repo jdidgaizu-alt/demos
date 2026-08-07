@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garage de Kiss — Garage automobile &amp; carrosserie à Gennevilliers</title>
+<meta name="description" content="Garage de Kiss, garage automobile et carrosserie à Gennevilliers : entretien toutes marques, diagnostic électronique, pneus, peinture en cabine. Devis gratuit au 01 47 98 72 21.">
+<!--
+  Template « garage-auto » — kit sites-prospects
+  Palette : bleu de travail (#16232E) + jaune signalisation (#F2B705), gris acier clair.
+  Signature : bande à chevrons de signalisation (hero + sticky), 100 % CSS.
+-->
+<style>
+:root{
+  /* Palette métier : bleu de travail, acier, jaune signalisation */
+  --c-fond:#F1F4F6;
+  --c-surface:#FFFFFF;
+  --c-encre:#16232E;
+  --c-encre-2:#46586A;
+  --c-accent:#F2B705;
+  --c-accent-contraste:#16232E;
+
+  /* Échelle typographique commune */
+  --t-hero:      clamp(2.25rem, 7vw, 4rem);
+  --t-sous-hero: clamp(1.05rem, 2.5vw, 1.375rem);
+  --t-h2:        clamp(1.5rem, 4vw, 2.25rem);
+  --t-h3:        1.1875rem;
+  --t-corps:     1.0625rem;
+  --t-petit:     0.875rem;
+  --t-etiquette: 0.8125rem;
+
+  /* Échelle d'espacement base 8 */
+  --e-1:0.25rem; --e-2:0.5rem; --e-3:0.75rem; --e-4:1rem; --e-5:1.5rem;
+  --e-6:2rem; --e-7:3rem; --e-8:4rem; --e-9:6rem;
+}
+
+*{margin:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:var(--t-corps);
+  line-height:1.6;
+  color:var(--c-encre);
+  background:var(--c-fond);
+  padding-bottom:var(--e-9); /* réserve pour le bouton d'appel sticky mobile */
+}
+img,svg{max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--c-encre);outline-offset:2px}
+.sombre :focus-visible{outline-color:var(--c-accent)}
+
+.conteneur{max-width:72rem;margin-inline:auto;padding-inline:var(--e-4)}
+
+.section{padding-block:var(--e-8)}
+
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+
+/* ---------- Typographie ---------- */
+h1{font-size:var(--t-hero);line-height:1.15;font-weight:800;letter-spacing:-0.02em}
+h2{font-size:var(--t-h2);line-height:1.15;font-weight:800;letter-spacing:-0.01em}
+h3{font-size:var(--t-h3);font-weight:600}
+p{max-width:65ch}
+.etiquette{
+  font-size:var(--t-etiquette);
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-weight:600;
+  color:var(--c-encre-2);
+}
+.tete-section{margin-bottom:var(--e-6)}
+.tete-section h2{margin-top:var(--e-2)}
+
+/* ---------- Boutons d'appel ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--e-3);
+  min-height:3.5rem;
+  padding:var(--e-3) var(--e-5);
+  background:var(--c-accent);
+  color:var(--c-accent-contraste);
+  font-weight:600;
+  text-decoration:none;
+  border-radius:10px;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,35,46,.3)}
+.btn svg{flex:none}
+
+/* ---------- Signature : chevrons de signalisation ---------- */
+.chevrons{
+  height:12px;
+  background:repeating-linear-gradient(-45deg,
+    var(--c-accent) 0 14px,
+    var(--c-encre) 14px 28px);
+}
+
+/* ---------- 1. Hero ---------- */
+.hero{
+  background-color:var(--c-encre);
+  background-image:repeating-linear-gradient(-55deg,
+    rgba(255,255,255,.035) 0 2px, transparent 2px 16px); /* tôle brossée */
+  color:var(--c-fond);
+}
+.hero-int{padding-block:var(--e-8)}
+.hero .etiquette{color:var(--c-accent)}
+.hero h1{color:var(--c-surface);margin-top:var(--e-3)}
+.sous-hero{
+  font-size:var(--t-sous-hero);
+  margin-top:var(--e-4);
+  max-width:34ch;
+}
+.hero .btn{margin-top:var(--e-6)}
+.hero-note{font-size:var(--t-petit);margin-top:var(--e-3);opacity:.78}
+
+/* ---------- 2. Bandeau confiance ---------- */
+.bandeau{background:var(--c-surface);border-bottom:1px solid rgba(22,35,46,.08)}
+.bandeau-int{
+  display:grid;grid-template-columns:1fr 1fr;gap:var(--e-5);
+  padding-block:var(--e-5);
+}
+.preuve strong{display:block;font-weight:800}
+.preuve span{display:block;font-size:var(--t-petit);color:var(--c-encre-2)}
+
+/* ---------- 3. Services ---------- */
+.grille-services{display:grid;grid-template-columns:1fr;gap:var(--e-5)}
+.carte{
+  background:var(--c-surface);
+  border:1px solid rgba(22,35,46,.08);
+  border-radius:12px;
+  padding:var(--e-5);
+  box-shadow:0 1px 2px rgba(22,35,46,.05);
+}
+.pastille{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:3rem;height:3rem;border-radius:10px;
+  background:var(--c-fond);
+  margin-bottom:var(--e-4);
+}
+.carte p{margin-top:var(--e-2);color:var(--c-encre-2)}
+
+/* ---------- 4. À-propos ---------- */
+.a-propos{background:var(--c-surface)}
+.a-propos p + p{margin-top:var(--e-4)}
+
+/* ---------- 5. Témoignages ---------- */
+.grille-temoignages{display:grid;grid-template-columns:1fr;gap:var(--e-5)}
+blockquote{
+  background:var(--c-surface);
+  border:1px solid rgba(22,35,46,.08);
+  border-left:4px solid var(--c-accent);
+  border-radius:12px;
+  padding:var(--e-5);
+}
+blockquote cite{
+  display:block;
+  margin-top:var(--e-4);
+  font-style:normal;
+  font-weight:600;
+  font-size:var(--t-petit);
+  color:var(--c-encre-2);
+}
+
+/* ---------- 6. Infos pratiques ---------- */
+.infos{background:var(--c-encre);color:var(--c-fond)}
+.infos .etiquette{color:var(--c-accent)}
+.infos h2{color:var(--c-surface)}
+.grille-infos{display:grid;grid-template-columns:1fr;gap:var(--e-5)}
+.panneau{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:12px;
+  padding:var(--e-5);
+}
+.panneau h3{color:var(--c-surface);margin-bottom:var(--e-4)}
+.horaires{list-style:none;padding:0}
+.horaires li{
+  display:flex;justify-content:space-between;gap:var(--e-4);
+  padding-block:var(--e-2);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  font-size:var(--t-petit);
+}
+.horaires li:last-child{border-bottom:none}
+.horaires .jour{font-weight:600}
+.adresse{font-style:normal}
+.panneau .note{font-size:var(--t-petit);opacity:.78;margin-top:var(--e-4)}
+.panneau .btn{margin-top:var(--e-5)}
+
+/* ---------- 7. Footer ---------- */
+footer{
+  background:var(--c-encre);color:var(--c-fond);
+  border-top:1px solid rgba(255,255,255,.12);
+  font-size:var(--t-petit);
+}
+.footer-int{
+  padding-block:var(--e-6);
+  display:flex;flex-wrap:wrap;gap:var(--e-4);
+  align-items:center;justify-content:space-between;
+}
+footer a{padding-block:var(--e-3);display:inline-block}
+
+/* ---------- 8. Bouton d'appel sticky (mobile) ---------- */
+.appel-sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  display:flex;align-items:center;justify-content:center;gap:var(--e-3);
+  min-height:3.5rem;
+  padding:var(--e-3) var(--e-4);
+  background:var(--c-accent);
+  color:var(--c-accent-contraste);
+  font-weight:600;
+  text-decoration:none;
+}
+.appel-sticky::before{
+  content:"";position:absolute;left:0;right:0;top:-10px;height:10px;
+  background:repeating-linear-gradient(-45deg,
+    var(--c-accent) 0 14px,
+    var(--c-encre) 14px 28px);
+}
+
+/* ---------- Enrichissements ≥ 768 px ---------- */
+@media (min-width:768px){
+  body{padding-bottom:0}
+  .appel-sticky{display:none}
+  .conteneur{padding-inline:var(--e-6)}
+  .section{padding-block:var(--e-9)}
+  .hero-int{padding-block:var(--e-9)}
+  .bandeau-int{grid-template-columns:repeat(4,1fr)}
+  .grille-services{grid-template-columns:repeat(2,1fr)}
+  .grille-temoignages{grid-template-columns:repeat(3,1fr)}
+  .grille-infos{grid-template-columns:1fr 1fr}
+}
+@media (min-width:1024px){
+  .grille-services{grid-template-columns:repeat(3,1fr)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important}
+}
+</style>
+</head>
+<body>
+
+<!-- 1. Hero -->
+<header class="hero sombre">
+  <div class="conteneur hero-int">
+    <p class="etiquette">Garage toutes marques · Gennevilliers</p>
+    <h1>Garage de Kiss</h1>
+    <p class="sous-hero">Mécanique, entretien et carrosserie à Gennevilliers. On vous explique la panne avant de la réparer, et le devis avant de commencer.</p>
+    <a class="btn" href="tel:+33147987221">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Appeler maintenant · 01 47 98 72 21
+    </a>
+    <p class="hero-note">Devis gratuit — réponse aux horaires d'atelier.</p>
+  </div>
+  <div class="chevrons" aria-hidden="true"></div>
+</header>
+
+<main>
+
+  <!-- 2. Bandeau confiance -->
+  <section class="bandeau">
+    <h2 class="sr-only">Pourquoi nous confier votre véhicule</h2>
+    <div class="conteneur bandeau-int">
+      <p class="preuve"><strong>22 ans</strong><span>au service des conducteurs de Gennevilliers</span></p>
+      <p class="preuve"><strong>Devis gratuit</strong><span>chiffré avant toute intervention</span></p>
+      <p class="preuve"><strong>Toutes marques</strong><span>essence, diesel et hybride</span></p>
+      <p class="preuve"><strong>Véhicule de prêt</strong><span>sur simple demande</span></p>
+    </div>
+  </section>
+
+  <!-- 3. Services -->
+  <section class="section">
+    <div class="conteneur">
+      <div class="tete-section">
+        <p class="etiquette">Nos services</p>
+        <h2>De la vidange à la peinture complète</h2>
+      </div>
+      <div class="grille-services">
+
+        <article class="carte">
+          <span class="pastille">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.3 6.7a5 5 0 0 1-6.6 6.2L7 19.6a2.1 2.1 0 0 1-3-3l6.7-6.7a5 5 0 0 1 6.2-6.6l-3.2 3.2.9 2.9 2.9.9z"/></svg>
+          </span>
+          <h3>Révision &amp; vidange</h3>
+          <p>Entretien complet selon le carnet constructeur : vidange, filtres, remise à zéro des voyants. Votre garantie constructeur est préservée.</p>
+        </article>
+
+        <article class="carte">
+          <span class="pastille">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M6.5 12h3l1.5-3 2.5 6 1.5-3h2.5"/></svg>
+          </span>
+          <h3>Diagnostic électronique</h3>
+          <p>Valise multimarque pour lire les codes défaut : voyant moteur, ABS, airbag. On identifie la panne avant de toucher à quoi que ce soit.</p>
+        </article>
+
+        <article class="carte">
+          <span class="pastille">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="6.6" r="1" fill="currentColor" stroke="none"/><circle cx="17.4" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="17.4" r="1" fill="currentColor" stroke="none"/><circle cx="6.6" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <h3>Freins &amp; pneumatiques</h3>
+          <p>Plaquettes, disques, purge du liquide de frein. Montage, équilibrage et géométrie pour vos pneus, été comme hiver.</p>
+        </article>
+
+        <article class="carte">
+          <span class="pastille">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9h11.5v4H14l-1.6 7H8.8l1.4-7H6a2 2 0 0 1 0-4z"/><path d="M10.5 9V5.5h5V9"/><path d="M3.5 8 2 7M3.5 11H1.5M3.5 14l-1.5 1"/></svg>
+          </span>
+          <h3>Carrosserie &amp; peinture</h3>
+          <p>Débosselage, redressage et peinture en cabine. Teinte exacte au spectrophotomètre, raccords invisibles même en plein soleil.</p>
+        </article>
+
+        <article class="carte">
+          <span class="pastille">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5 5.8 7.6A2 2 0 0 1 7.8 6h8.4a2 2 0 0 1 2 1.6L20 18.5"/><path d="M3 18.5h18"/><path d="M11.6 11.2 9.4 9.4M11.6 11.2l2.6-.9M11.6 11.2l-.7 2.6M11.6 11.2l2 2.1"/></svg>
+          </span>
+          <h3>Pare-brise &amp; vitrage</h3>
+          <p>Réparation d'impacts et remplacement de pare-brise. Prise en charge directe avec votre assurance, sans avance de frais.</p>
+        </article>
+
+        <article class="carte">
+          <span class="pastille">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.5v15M5.5 8.25l13 7.5M18.5 8.25l-13 7.5"/><path d="M9.8 6.2 12 7.6l2.2-1.4M9.8 17.8 12 16.4l2.2 1.4"/></svg>
+          </span>
+          <h3>Climatisation</h3>
+          <p>Recharge, recherche de fuite et remplacement du filtre d'habitacle. Un air sain et un vrai froid retrouvé avant l'été.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. À-propos -->
+  <section class="section a-propos">
+    <div class="conteneur">
+      <div class="tete-section">
+        <p class="etiquette">L'atelier</p>
+        <h2>Un garage de quartier, équipé comme les grands</h2>
+      </div>
+      <p>Notre atelier est installé à Gennevilliers depuis plus de vingt ans. Deux ponts élévateurs, une cabine de peinture aux normes, et une règle qui n'a jamais changé : on vous montre la pièce usée, on chiffre, et on ne lance rien sans votre accord.</p>
+      <p>Du premier entretien d'une citadine à la remise en état complète d'une carrosserie accidentée, nous travaillons sur toutes les marques, récentes ou anciennes. Vous repartez avec une facture détaillée ligne par ligne — et un véhicule prêt le jour où on vous l'a promis.</p>
+    </div>
+  </section>
+
+  <!-- 5. Témoignages -->
+  <section class="section">
+    <div class="conteneur">
+      <div class="tete-section">
+        <p class="etiquette">Ils nous confient leurs clés</p>
+        <h2>Ce que disent nos clients</h2>
+      </div>
+      <div class="grille-temoignages">
+
+        <blockquote>
+          <p>« Devis annoncé le mardi, voiture rendue le jeudi, montant respecté au centime près. L'embrayage de ma 208 n'a plus jamais bronché. »</p>
+          <cite>Karim B. — quartier de la gare</cite>
+        </blockquote>
+
+        <blockquote>
+          <p>« Après un accrochage sur un parking, l'aile avant était enfoncée et rayée jusqu'à la tôle. Ils ont redressé, repeint, et je suis incapable de retrouver le raccord, même en plein soleil. Le garage a géré l'assurance directement, je n'ai rempli aucun papier. »</p>
+          <cite>Sylvie M. — carrosserie après sinistre</cite>
+        </blockquote>
+
+        <blockquote>
+          <p>« Voyant moteur allumé un vendredi soir, diagnostic le samedi matin. Une sonde à changer, pas une fortune. »</p>
+          <cite>Laurent D. — révision annuelle de son utilitaire</cite>
+        </blockquote>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Infos pratiques -->
+  <section class="section infos sombre">
+    <div class="conteneur">
+      <div class="tete-section">
+        <p class="etiquette">Infos pratiques</p>
+        <h2>Venir à l'atelier</h2>
+      </div>
+      <div class="grille-infos">
+
+        <div class="panneau">
+          <h3>Horaires d'ouverture</h3>
+          <ul class="horaires">
+            <li><span class="jour">Lundi</span><span>8h00–12h00 · 14h00–18h30</span></li>
+            <li><span class="jour">Mardi</span><span>8h00–12h00 · 14h00–18h30</span></li>
+            <li><span class="jour">Mercredi</span><span>8h00–12h00 · 14h00–18h30</span></li>
+            <li><span class="jour">Jeudi</span><span>8h00–12h00 · 14h00–18h30</span></li>
+            <li><span class="jour">Vendredi</span><span>8h00–12h00 · 14h00–17h30</span></li>
+            <li><span class="jour">Samedi</span><span>8h30–12h00, sur rendez-vous</span></li>
+            <li><span class="jour">Dimanche</span><span>Fermé</span></li>
+          </ul>
+        </div>
+
+        <div class="panneau">
+          <h3>Adresse &amp; contact</h3>
+          <address class="adresse">12 Rue Croix des Vignes, 92230 Gennevilliers</address>
+          <p class="note">Parking clientèle dans la cour. Dépôt des clés possible dans la boîte sécurisée en dehors des horaires.</p>
+          <a class="btn" href="tel:+33147987221">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            01 47 98 72 21
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 7. Footer -->
+<footer class="sombre">
+  <div class="conteneur footer-int">
+    <p>Garage de Kiss — garage automobile et carrosserie à Gennevilliers</p>
+    <p><a href="tel:+33147987221">01 47 98 72 21</a></p>
+    <p><a href="#">Mentions légales</a></p>
+  </div>
+</footer>
+
+<!-- 8. Bouton d'appel sticky (mobile uniquement) -->
+<a class="appel-sticky sombre" href="tel:+33147987221" aria-label="Appeler Garage de Kiss">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  Appeler maintenant · 01 47 98 72 21
+</a>
+
+</body>
+</html>
