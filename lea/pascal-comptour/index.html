@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Léa — la secrétaire qui décroche quand vous ne pouvez pas · Pascal Comptour</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  :root {
+    --encre: #14171c;
+    --encre-douce: #4a5361;
+    --papier: #ffffff;
+    --fond: #f4f2ee;
+    --trait: #e2ded6;
+    --accent: #1f5f4b;
+    --accent-clair: #eaf3ef;
+    --alerte: #8a4b1f;
+  }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--fond);
+    color: var(--encre);
+    font: 400 17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .enveloppe { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem 5rem; }
+
+  header { padding: 3.5rem 0 2.5rem; }
+  .oeil {
+    display: inline-block; font-size: .75rem; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--accent-clair); border-radius: 2rem;
+    padding: .35rem .85rem; margin-bottom: 1.5rem; font-weight: 600;
+  }
+  h1 {
+    font-size: clamp(1.9rem, 5.5vw, 2.9rem); line-height: 1.15;
+    margin: 0 0 1rem; letter-spacing: -.02em; font-weight: 700;
+  }
+  .chapo { font-size: 1.15rem; color: var(--encre-douce); margin: 0; max-width: 34rem; }
+
+  .carte {
+    background: var(--papier); border: 1px solid var(--trait);
+    border-radius: 14px; padding: 1.75rem; margin: 2rem 0;
+  }
+  .carte--ecoute { border-color: var(--accent); border-width: 2px; }
+  .carte h2 { margin: 0 0 .35rem; font-size: 1.25rem; letter-spacing: -.01em; }
+  .carte p.sous { margin: 0 0 1.25rem; color: var(--encre-douce); font-size: .97rem; }
+  audio { width: 100%; display: block; }
+
+  .repere {
+    display: flex; gap: .6rem; align-items: baseline;
+    font-size: .92rem; color: var(--encre-douce);
+    padding: .5rem 0; border-bottom: 1px solid var(--trait);
+  }
+  .repere:last-child { border-bottom: 0; }
+  .repere b { color: var(--encre); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  h2.section {
+    font-size: 1.35rem; margin: 3rem 0 1rem; letter-spacing: -.01em;
+  }
+  ul.faits { list-style: none; padding: 0; margin: 0; }
+  ul.faits li {
+    padding: .55rem 0 .55rem 1.6rem; position: relative;
+    border-bottom: 1px solid var(--trait);
+  }
+  ul.faits li:last-child { border-bottom: 0; }
+  ul.faits li::before {
+    content: ""; position: absolute; left: .2rem; top: 1.05rem;
+    width: .45rem; height: .45rem; border-radius: 50%; background: var(--accent);
+  }
+  ul.faits li.non::before { background: var(--alerte); }
+
+  .duo { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 40rem) { .duo { grid-template-columns: 1fr 1fr; } }
+
+  .transcription { font-size: .95rem; }
+  .transcription .tour { margin: 0 0 .9rem; }
+  .transcription .qui {
+    display: block; font-size: .74rem; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--encre-douce); margin-bottom: .15rem;
+  }
+  .transcription .lea { color: var(--accent); font-weight: 600; }
+  details.plus > summary {
+    cursor: pointer; color: var(--accent); font-weight: 600;
+    padding: .5rem 0; font-size: .95rem;
+  }
+
+  .franchise {
+    background: #fffaf3; border: 1px solid #e8d5bb; border-radius: 12px;
+    padding: 1.25rem 1.4rem; margin: 2rem 0; font-size: .95rem;
+  }
+  .franchise strong { color: var(--alerte); }
+
+  .final { text-align: center; padding: 2.5rem 0 0; }
+  .final p { color: var(--encre-douce); margin: 0 0 1.25rem; }
+  .bouton {
+    display: inline-block; background: var(--accent); color: #fff;
+    text-decoration: none; font-weight: 600; font-size: 1.05rem;
+    padding: .9rem 1.9rem; border-radius: 10px;
+  }
+  footer {
+    margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--trait);
+    font-size: .82rem; color: var(--encre-douce);
+  }
+</style>
+</head>
+<body>
+<div class="enveloppe">
+
+  <header>
+    <span class="oeil">Préparé pour Pascal Comptour · Marseille</span>
+    <h1>Écoutez ce qui se passe quand vous ne pouvez pas décrocher.</h1>
+    <p class="chapo">
+      Deux minutes cinquante-trois d'un vrai appel. Pas une brochure, pas une vidéo de
+      présentation&nbsp;: l'enregistrement brut d'un client qui appelle et d'une assistante
+      qui décroche à votre place.
+    </p>
+  </header>
+
+  <div class="carte carte--ecoute">
+    <h2>L'appel, en entier</h2>
+    <p class="sous">Le mieux est de commencer par les dix premières secondes.</p>
+    <audio controls preload="metadata" src="../plomberie.mp3">
+      Votre navigateur ne peut pas lire l'audio.
+      <a href="../plomberie.mp3">Télécharger l'enregistrement</a>.
+    </audio>
+    <div style="margin-top:1.25rem">
+      <div class="repere"><b>0:00</b><span>Elle annonce qu'elle est une assistante automatique et que l'appel est enregistré.</span></div>
+      <div class="repere"><b>0:20</b><span>Le client panique — fuite d'eau. Elle fait couper l'arrivée d'eau avant toute chose.</span></div>
+      <div class="repere"><b>1:05</b><span>Le client épelle un nom difficile. Elle le restitue sans le déformer.</span></div>
+      <div class="repere"><b>1:40</b><span>Elle relit le numéro de téléphone chiffre par chiffre et fait confirmer.</span></div>
+      <div class="repere"><b>2:25</b><span>Elle relit l'adresse et le code postal, annonce le rappel, et raccroche.</span></div>
+    </div>
+  </div>
+
+  <h2 class="section">Ce qu'elle fait — et ce qu'elle ne fait jamais</h2>
+  <div class="duo">
+    <div class="carte">
+      <h2 style="font-size:1.05rem">Elle fait</h2>
+      <ul class="faits">
+        <li>Décroche 24 h/24, y compris le soir et le week-end</li>
+        <li>Prend le nom, le besoin, l'adresse et le numéro</li>
+        <li>Relit chaque chiffre et fait confirmer</li>
+        <li>Donne les consignes de sécurité prévues par vous</li>
+        <li>Vous envoie le compte rendu par écrit</li>
+      </ul>
+    </div>
+    <div class="carte">
+      <h2 style="font-size:1.05rem">Elle ne fait jamais</h2>
+      <ul class="faits">
+        <li class="non">Annoncer un prix</li>
+        <li class="non">Promettre un délai d'intervention</li>
+        <li class="non">S'engager à votre place</li>
+        <li class="non">Inventer une information qu'elle n'a pas</li>
+        <li class="non">Décrocher si vous, vous avez répondu</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="franchise">
+    <p style="margin:0 0 .6rem"><strong>Pour être franc sur ce que vous venez d'entendre.</strong></p>
+    <p style="margin:0">
+      Cet enregistrement a été réalisé pour <b>un plombier</b>, sur une urgence de fuite d'eau. Ce n'est pas votre métier et ce n'est pas votre entreprise — je ne vais pas vous faire croire le contraire. Le script d'une assistante se réécrit pour votre activité&nbsp;; ce que cet appel démontre, c'est la <b>voix</b>, la <b>tenue de l'appel</b> et la <b>relecture des chiffres</b>, et ça, c'est identique quel que soit le métier. Il montre une prise de message, <b>pas</b> une réservation dans un agenda.
+    </p>
+  </div>
+
+  <details class="plus">
+    <summary>Lire la transcription de l'appel</summary>
+    <div class="transcription" style="margin-top:1rem">
+      <p class="tour"><span class="qui lea">Léa</span>Roussel Plomberie Chauffage, bonjour ! Vous êtes en relation avec Léa, l'assistante vocale automatique. Cet appel est enregistré. Je vous écoute.</p>
+      <p class="tour"><span class="qui">Client</span>Bonjour, j'ai une grosse fuite d'eau sous mon chauffe-eau, il y a de l'eau partout dans la buanderie, vous pouvez envoyer quelqu'un vite ?</p>
+      <p class="tour"><span class="qui lea">Léa</span>Ah oui, je comprends, ça fait peur quand y'a de l'eau partout. On va gérer ça ensemble. Première chose : il faut fermer l'arrivée d'eau au robinet général, souvent près du compteur ou sous l'évier. Vous le trouvez ?</p>
+      <p class="tour"><span class="qui">Client</span>Oui c'est bon, j'ai coupé l'arrivée d'eau, ça coule beaucoup moins. Vous pouvez venir aujourd'hui ?</p>
+      <p class="tour"><span class="qui lea">Léa</span>[consigne de sécurité électrique, puis demande du nom]</p>
+      <p class="tour"><span class="qui">Client</span>D'ailleurs personne ne sait l'écrire, je vous épelle : D-H-A-E-Y-E-R. Le prénom c'est Yannick.</p>
+      <p class="tour"><span class="qui lea">Léa</span>[restitue « monsieur Dhaeyer », prénom Yannick, puis demande le numéro]</p>
+      <p class="tour"><span class="qui">Client</span>Alors c'est le zéro six, quatre-vingt-onze, soixante et onze, trente-deux, quatre-vingts.</p>
+      <p class="tour"><span class="qui lea">Léa</span>Zéro six, quatre-vingt-onze, soixante et onze, trente-deux, quatre-vingts. C'est bien ça ?</p>
+      <p class="tour"><span class="qui">Client</span>Oui c'est exact. C'est au quatorze rue des Tanneurs, cinquante-neuf mille huit cents, à Lille.</p>
+      <p class="tour"><span class="qui lea">Léa</span>Très bien, je répète pour être sûre : quatorze, rue des Tanneurs, à Lille, code postal cinquante-neuf, huit, zéro, zéro. C'est bien ça ?</p>
+      <p class="tour"><span class="qui lea">Léa</span>Parfait. C'est noté, gardez votre téléphone à portée de main, le technicien vous rappelle dans les cinq minutes pour organiser le passage.</p>
+    </div>
+  </details>
+
+  <div class="final">
+    <p>Si vous voulez entendre ce que ça donne avec le vocabulaire d'un électricien,<br>
+       le plus simple est d'en parler cinq minutes.</p>
+    <a class="bouton" href="tel:+33698242043">Appeler Othman — 06 98 24 20 43</a>
+  </div>
+
+  <footer>
+    Page privée préparée pour Pascal Comptour. Non référencée.
+    L'enregistrement est un appel réel, non retouché. L'assistante annonce elle-même
+    qu'elle est automatique et que l'appel est enregistré, conformément à l'article 50
+    du règlement européen sur l'intelligence artificielle.
+  </footer>
+
+</div>
+</body>
+</html>
